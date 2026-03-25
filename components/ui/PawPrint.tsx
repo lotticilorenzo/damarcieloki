@@ -22,11 +22,11 @@ const sizeMap: Record<PawSize, number> = {
 }
 
 const colorClassMap: Record<PawColor, string> = {
-  orange: 'text-orange/50',
-  teal: 'text-teal/50',
-  brown: 'text-brown/50',
-  'orange-light': 'text-orange-light opacity-60',
-  'teal-light': 'text-teal-light opacity-60',
+  orange: 'text-orange',
+  teal: 'text-teal',
+  brown: 'text-brown',
+  'orange-light': 'text-orange-light',
+  'teal-light': 'text-teal-light',
 }
 
 export const PawPrint = memo(function PawPrint({

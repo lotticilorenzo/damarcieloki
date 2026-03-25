@@ -74,7 +74,7 @@ export function PawCursor() {
     setIsTouch(touchCheck)
     setReducedMotion(motionCheck)
 
-    if (touchCheck || motionCheck) return
+    if (touchCheck) return
 
     // Attivazione classe globale per nascondere il cursore di sistema
     document.documentElement.classList.add('custom-cursor-active')
@@ -91,8 +91,8 @@ export function PawCursor() {
     }
   }, [handleMouseMove, handleMouseOver, handleMouseDown])
 
-  // Non renderizzare nulla se siamo su touch o reduced motion
-  if (isTouch || reducedMotion) return null
+  // Non renderizzare nulla se siamo su touch
+  if (isTouch) return null
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[99999] overflow-hidden select-none">
@@ -102,7 +102,7 @@ export function PawCursor() {
         style={{
           x: springX,
           y: springY,
-          opacity: (isVisible && cursorState !== 'hidden') ? 0.85 : 0,
+          opacity: (isVisible && cursorState !== 'hidden') ? 1 : 0,
         }}
       >
         {/* Cerchio outline per stato 'image' */}
@@ -120,12 +120,12 @@ export function PawCursor() {
         {/* La Zampa (PawPrint) */}
         <motion.div
           animate={{
-            scale: cursorState === 'pointer' ? 1.3 : 1,
+            scale: cursorState === 'pointer' ? 1.4 : 1,
             color: cursorState === 'pointer' ? '#2A7A7B' : '#D4581A', // teal vs orange
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <PawPrint size="sm" className="opacity-100!" style={{ color: 'inherit' }} />
+          <PawPrint size="sm" className="drop-shadow-sm" style={{ color: 'inherit' }} />
         </motion.div>
       </motion.div>
 
