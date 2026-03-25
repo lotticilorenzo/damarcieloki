@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { LokiSticker } from '../ui/LokiSticker'
 import { BookingForm } from '../forms/BookingForm'
 import { whatsappLink } from '@/lib/utils'
+import { PeekabooElement } from '../ui/PeekabooElement'
 
 // Sub-componentino per generare bolle galleggianti
 const CtaBubble = ({ duration, dx, dy, className }: { duration: string, dx: string, dy: string, className: string }) => (
@@ -30,6 +31,17 @@ export function BookingCtaSection() {
         <CtaBubble className="w-[250px] h-[250px] left-[35%] top-[15%]" duration="14s" dx="35px" dy="-40px" />
         <CtaBubble className="w-[400px] h-[400px] right-[15%] top-[5%]" duration="20s" dx="-50px" dy="50px" />
       </div>
+
+      {/* Peekaboo Loki (spunta dall'alto del Box Form durante lo scroll) */}
+      <PeekabooElement 
+        yStart={80} 
+        yEnd={-40} 
+        start="top 90%"
+        end="bottom 20%"
+        className="hidden lg:block right-[8%] -top-[160px] z-10"
+      >
+        <LokiSticker expression="happy" size="lg" className="rotate-[-12deg] drop-shadow-2xl" />
+      </PeekabooElement>
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10 w-full flex-grow">
         <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-16 lg:gap-20">

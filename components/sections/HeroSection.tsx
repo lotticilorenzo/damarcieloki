@@ -12,6 +12,7 @@ import { ctaConNome } from '@/lib/utils'
 import { soundManager } from '@/lib/sounds'
 import { MagneticButton } from '../ui/MagneticButton'
 import { ParallaxImage } from '../ui/ParallaxImage'
+import { HoverImageReveal } from '../ui/HoverImageReveal'
 
 export function HeroSection() {
   return (
@@ -56,12 +57,16 @@ export function HeroSection() {
             >
               <div className="overflow-hidden flex items-end">
                 <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
-                  <Link href="/servizi/bagno" className="hover:text-orange transition-colors">Bagnetto</Link>,
+                  <HoverImageReveal imageSrc="/images/hero.png" rotation={-6}>
+                    <Link href="/servizi/bagno" className="hover:text-orange transition-colors">Bagnetto</Link>,
+                  </HoverImageReveal>
                 </motion.span>
               </div>
               <div className="overflow-hidden flex items-end">
                 <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
-                  <Link href="/servizi/taglio-forbice" className="hover:text-orange transition-colors font-medium">piega</Link>
+                  <HoverImageReveal imageSrc="/images/salon.png" rotation={4}>
+                    <Link href="/servizi/taglio-forbice" className="hover:text-orange transition-colors font-medium">piega</Link>
+                  </HoverImageReveal>
                 </motion.span>
               </div>
               <div className="overflow-hidden flex items-end">
@@ -71,7 +76,9 @@ export function HeroSection() {
               </div>
               <div className="overflow-hidden flex items-end">
                 <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
-                  <span className="text-orange">coccole.</span>
+                  <HoverImageReveal imageSrc="/images/hero.png" rotation={-3}>
+                    <span className="text-orange">coccole.</span>
+                  </HoverImageReveal>
                 </motion.span>
               </div>
             </motion.h1>

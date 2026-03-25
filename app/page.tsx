@@ -7,6 +7,7 @@ import { WhyMarciSection } from '@/components/sections/WhyMarciSection'
 import { DogBreedsSection } from '@/components/sections/DogBreedsSection'
 import { BeforeAfterSection } from '@/components/sections/BeforeAfterSection'
 import { LokiDiarySection } from '@/components/sections/LokiDiarySection'
+import { HorizontalGallery } from '@/components/sections/HorizontalGallery'
 import { ProcessSection } from '@/components/sections/ProcessSection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { BookingCtaSection } from '@/components/sections/BookingCtaSection'
@@ -121,6 +122,9 @@ export default function HomePage() {
 
       {/* Insert DogBreedsSection before ProcessSection */}
       <DogBreedsSection />
+      
+      <HorizontalGallery />
+      
       <BeforeAfterSection />
       <LokiDiarySection />
 

@@ -4,6 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { servizi } from '@/data/services'
 import { ServiceCard } from '../ui/ServiceCard'
+import { PeekabooElement } from '../ui/PeekabooElement'
+import { LokiSticker } from '../ui/LokiSticker'
 
 export function ServicesSection() {
   return (
@@ -31,6 +33,17 @@ export function ServicesSection() {
             Cinque servizi. Uno stile: prendersi il tempo che serve.
           </motion.p>
         </div>
+
+        {/* Peekaboo Dog Decorativo (spunta da sinistra durante lo scroll) */}
+        <PeekabooElement 
+          yStart={120} 
+          yEnd={-80} 
+          xStart={-40} 
+          xEnd={10} 
+          className="hidden lg:block -left-[140px] top-[20%] opacity-90 z-0"
+        >
+          <LokiSticker expression="curious" size="lg" className="rotate-[15deg] drop-shadow-xl scale-125" />
+        </PeekabooElement>
 
         {/* Griglia Organica Bento */}
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.9fr_1fr] md:auto-rows-fr gap-6 md:gap-8">
