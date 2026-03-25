@@ -3,20 +3,20 @@ import { ProcessStep } from "@/types"
 export const stepsPrenotazione: ProcessStep[] = [
   {
     numero: '01',
-    titolo: 'Scrivimi',
-    descrizione: 'Su WhatsApp o email — ti rispondo in giornata.',
+    titolo: 'Raccontami di lui',
+    descrizione: 'Scrivimi su WhatsApp o chiamami. Parliamo del tuo cane e delle sue peculiarità, così per me sarà più facile prepararmi ad accudirlo.',
     emoji: '💬'
   },
   {
     numero: '02',
-    titolo: 'Parliamo del tuo cane',
-    descrizione: 'Razza, pelo, carattere. Così arrivo preparato.',
-    emoji: '🐕'
+    titolo: 'Vieni a trovarci',
+    descrizione: 'Portalo nella nostra sede. Lavoreremo con calma e dedizione per farlo stare molto meglio e togliergli ogni stress.',
+    emoji: '🏠'
   },
   {
     numero: '03',
-    titolo: 'Vieni a Piazzale della Pace',
-    descrizione: 'Torna a casa con un cane felice e profumato.',
-    emoji: '🏠'
+    titolo: 'Felice e profumato',
+    descrizione: 'Tornerà a casa rilassato, bellissimo e super profumato. Un risultato che si vede e si sente.',
+    emoji: '✨'
   }
 ]

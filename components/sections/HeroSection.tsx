@@ -95,8 +95,7 @@ export function HeroSection() {
               variants={heroChildren.item}
               className="font-sans font-normal text-text-sec text-[16px] md:text-[17px] leading-[1.75] max-w-[52ch] mb-10 text-balance"
             >
-              Sono Marci, <span className="font-semibold text-brown">toelettatore di cani a Parma</span>. 
-              <Link href="/chi-sono" className="hover:underline underline-offset-4 decoration-orange/40 transition-all">Addestratore cinofilo</Link> e appassionato: ogni cane è diverso e merita il tempo necessario per sentirsi a proprio agio, proprio come se fossi io a prendermene cura.
+              Tutto nasce da un amore smisurato. Sono Marci, <span className="font-semibold text-brown">toelettatore e addestratore cinofilo a Parma</span>. Ogni cane è un'anima unica e speciale: merita dedizione, pazienza e le cure necessarie per un'esperienza senza stress, trattato con lo stesso identico amore con cui lo tratteresti tu.
             </motion.p>
 
             <motion.div

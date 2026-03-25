@@ -12,7 +12,7 @@ const usps = [
   {
     icon: GraduationCap,
     title: "Capisco i cani. Davvero.",
-    text: <>Ho il <Link href="/chi-sono" className="underline decoration-orange/30 hover:decoration-orange transition-all">diploma di addestratore cinofilo</Link>. I cani difficili non mi spaventano — anzi, sono i miei preferiti.</>
+    text: <>Ho il <Link href="/chi-sono" className="underline decoration-orange/30 hover:decoration-orange transition-all">diploma di addestratore cinofilo</Link>. I cani difficili non mi spaventano, anzi, sono i miei preferiti.</>
   },
   {
     icon: Dog,
@@ -22,7 +22,7 @@ const usps = [
   {
     icon: Scissors,
     title: "Ogni pelo ha il suo tempo.",
-    text: "Non taglio di fretta. Il risultato si vede — e si vede ancora meglio la volta dopo."
+    text: "Non taglio di fretta. Il risultato si vede e si vede ancora meglio la volta dopo."
   }
 ]
 
@@ -111,7 +111,7 @@ export function WhyMarciSection() {
         </div>
 
         {/* 3 USP Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-16 lg:gap-24">
           {usps.map((usp, index) => {
             const Icon = usp.icon
             

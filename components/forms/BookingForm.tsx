@@ -152,7 +152,7 @@ export function BookingForm({ initialService = 'bagno' }: { initialService?: 'ba
     <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-[24px] p-6 md:p-10 shadow-[0_20px_48px_rgba(106,58,42,0.16)] flex flex-col gap-6 w-full relative z-10 border border-[rgba(240,232,221,0.5)]">
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <FloatingInput id="nomeCane" label="Come si chiama il tuo bestione?" registerName="nomeCane" error={errors.nomeCane} />
+        <FloatingInput id="nomeCane" label="Come si chiama il tuo cagnolino?" registerName="nomeCane" error={errors.nomeCane} />
         <FloatingInput id="razza" label="Che razza è? (bellissima)" registerName="razza" error={errors.razza} />
       </div>
 

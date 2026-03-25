@@ -10,11 +10,11 @@ import { cn } from '@/lib/utils'
 import { ParallaxImage } from '../ui/ParallaxImage'
 
 const milestones = [
-  { year: '2009', title: 'Il primo cane entra in casa', text: 'E non esce più dal cuore. Nasce l\'amore incondizionato per i cani.' },
-  { year: '2023', title: 'Inizio corso addestratore', text: 'Decido di trasformare una passione nello studio approfondito del comportamento cinofilo.' },
-  { year: '2025', title: 'Diploma certificato', text: 'Addestratore ENCI ufficialmente diplomato. Inizio a capire davvero il cane a 360°.' },
-  { year: 'gen 2026', title: 'Corso di toelettatura', text: 'Unisco la conoscenza comportamentale alla cura del pelo. Un approccio diverso.' },
-  { year: 'giu 2026', title: 'Apre Da Marci & Loki', text: 'A Parma. Non un semplice lavaggio, ma un posto dove ogni cane è compreso.' },
+  { year: '2009', title: 'Amore a prima vista', text: 'Tutto inizia da un cane entrato in casa che non è più uscito dal mio cuore. Una passione travolgente.' },
+  { year: '2023', title: 'L\'addestramento', text: 'La curiosità diventa studio intenso. Inizio il percorso per diventare addestratore cinofilo.' },
+  { year: '2025', title: 'Certificazione', text: 'Diploma ENCI in tasca. Comprendere il comportamento canino ha decuplicato il mio amore per loro.' },
+  { year: 'gen 2026', title: 'Toelettatura', text: 'Unisco l\'approccio comportamentale alla cura estetica per garantire relax totale.' },
+  { year: 'giu 2026', title: 'Da Marci & Loki', text: 'Apro a Parma. Per vivere a contatto con i cani e trasmettere la mia passione al pubblico.' },
 ]
 
 export function StorySection() {
@@ -83,7 +83,7 @@ export function StorySection() {
             Come sono arrivato qui
           </h2>
           <p className="font-sans text-text-sec text-[18px] md:text-[20px] max-w-[50ch] text-balance leading-relaxed">
-            Dal primo cane salvato al salone di oggi. Un percorso fatto di studio e tanto cuore.
+            Una storia d'amore che è diventata una professione. Mettiamo il cuore prima di ogni altra cosa.
           </p>
         </div>
 

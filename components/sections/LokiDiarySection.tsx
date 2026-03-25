@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 interface DiaryEntry {
   id: string
-  date: string
+  title: string
   expression: LokiExpression
   text: string
   rotation: number
@@ -18,7 +18,7 @@ interface DiaryEntry {
 const entries: DiaryEntry[] = [
   {
     id: '1',
-    date: 'Martedì scorso',
+    title: 'Amico Spettinato',
     expression: 'approves',
     text: "Oggi è arrivato uno Schnauzer con un pelo... come dire... interessante. Marci ci ha lavorato due ore. Risultato: spettacolare. Voto Loki: 10/10 avrei abbaiato di gioia.",
     rotation: -1.5,
@@ -26,7 +26,7 @@ const entries: DiaryEntry[] = [
   },
   {
     id: '2',
-    date: 'Giovedì',
+    title: 'Il Gigante Buono',
     expression: 'curious',
     text: "Un Pastore Tedesco. Grosso. Molto grosso. Io ho fatto finta di dormire per tutta la sessione. Marci non si è spaventato. Io un po' sì.",
     rotation: 0.8,
@@ -34,7 +34,7 @@ const entries: DiaryEntry[] = [
   },
   {
     id: '3',
-    date: 'Ieri',
+    title: 'Fiocco, il mio amore',
     expression: 'happy',
     text: "Barboncina di nome Fiocco. La più bella che sia mai venuta qui. Dico questo in modo completamente obiettivo e senza conflitti di interesse.",
     rotation: -0.5,
@@ -77,8 +77,8 @@ const DiaryPostIt = ({ entry, index }: { entry: DiaryEntry, index: number }) => 
     {/* Contenuto post-it */}
     <div>
       <div className="flex items-center justify-between mb-6">
-        <span className="font-heading italic font-bold text-orange text-[14px] uppercase tracking-wider">
-          {entry.date}
+        <span className="font-heading italic font-bold text-orange text-[16px] tracking-wide">
+          {entry.title}
         </span>
         <div className="bg-white/40 p-1.5 rounded-full scale-90">
              <LokiSticker expression={entry.expression} size="sm" className="opacity-100" />

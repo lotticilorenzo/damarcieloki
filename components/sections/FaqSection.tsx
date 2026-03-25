@@ -7,20 +7,20 @@ import { cn } from '@/lib/utils'
 
 const faqData = [
   {
-    question: "Posso assistere alla toelettatura?",
-    answer: "Preferisco lavorare da solo con il tuo cane. I cani tendono a distrarsi o agitarsi molto se vedono il padrone. Con me sono più tranquilli e collaborativi, parola di addestratore!"
+    question: "Posso restare a guardare mentre lo lavi?",
+    answer: "Preferisco di no, ma è per il suo bene! Se ti vede, cercherà costantemente di raggiungerti e non si godrà il relax. Affidalo a me, diventerò presto la sua seconda persona preferita."
   },
   {
-    question: "Quanto tempo ci vuole per un taglio o un bagno?",
-    answer: "Dipende dalla taglia, dal tipo di pelo e da cosa dobbiamo fare. In media un bagno richiede da un'ora a un'ora e mezza, mentre un taglio completo o lo stripping può richiedere fino a due ore. Ti avviserò io quando sarà pronto."
+    question: "Quanto dura una sessione da VIP?",
+    answer: "Dipende dal pelo e da quante coccole richiede! Di solito da 1 a 2 ore. Ma non ti preoccupare, ti mando un messaggino su WhatsApp non appena ha finito di farsi bello."
   },
   {
-    question: "Usi gabbie per l'asciugatura?",
-    answer: "Assolutamente no. L'asciugatura viene fatta sempre a mano con i soffiatori, rispettando i tempi del cane. Niente gabbie, cerco di ridurre al minimo lo stress."
+    question: "Usi quelle gabbie per l'asciugatura?",
+    answer: "Assolutamente MAI. L'asciugatura è rigorosamente a mano, con panni morbidi, phon a temperature adeguate e tanti grattini. Zero gabbie, zero costrizioni. Solo puro rispetto per i suoi tempi."
   },
   {
-    question: "Come devo portare il cane al salone?",
-    answer: "Cerca di fargli fare una passeggiata e i suoi bisogni prima di portarlo. Arriva puntuale e, se ha particolari problemi di pelle o nodi gravi, segnalamelo subito."
+    question: "Cosa devo fare prima di portarlo?",
+    answer: "Fagli fare una bella passeggiata tranquilla (e tutti i bisognini) prima di varcare la porta. Se ha nodi particolari o è un tipo un po' timido, dimmelo prima, così preparo l'ambiente perfetto per lui!"
   }
 ]
 
@@ -55,9 +55,9 @@ export function FaqSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 outline-none animate-focus-pulse"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 outline-none animate-focus-pulse group"
                 >
-                  <span className="font-heading font-bold text-text text-xl">{faq.question}</span>
+                  <span className="font-heading font-bold text-brown text-[20px] md:text-xl group-hover:text-orange transition-colors duration-300">{faq.question}</span>
                   <div className={cn(
                     "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors",
                     isOpen ? "bg-orange-light text-orange" : "bg-bg-alt text-text-muted"

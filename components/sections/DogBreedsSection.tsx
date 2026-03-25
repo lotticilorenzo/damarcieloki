@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { PawPrint } from '../ui/PawPrint'
 import { cn } from '@/lib/utils'
 
@@ -59,37 +60,32 @@ const BreedCard = ({ breed }: { breed: Breed }) => (
     variants={itemVariants}
     whileHover={{ y: -6, scale: 1.02 }}
     className={cn(
-      "rounded-3xl p-6 border border-border/60 transition-all duration-500 shadow-sm hover:shadow-[0_20px_40px_rgba(106,58,42,0.08)] relative group overflow-hidden flex flex-col justify-between",
+      "rounded-3xl border border-border/60 transition-all duration-500 shadow-sm hover:shadow-[0_20px_40px_rgba(106,58,42,0.08)] relative group overflow-hidden flex flex-col justify-end min-h-[160px] md:min-h-[200px]",
       breed.bentoClass ? breed.bentoClass : "bg-white",
       !breed.bentoClass.includes('bg-') && "bg-white hover:border-orange/30"
     )}
   >
-    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform group-hover:rotate-12 group-hover:scale-125 z-0">
+    {/* Immagine Sfondo Fading In Hover */}
+    <Image 
+      src="/images/hero.png" 
+      alt="Placeholder Image" 
+      fill 
+      className="object-cover absolute inset-0 opacity-10 group-hover:opacity-100 transition-opacity duration-500 scale-100 group-hover:scale-105"
+    />
+    
+    <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/50 to-white/10 group-hover:from-black/60 group-hover:via-black/20 group-hover:to-transparent z-0 transition-colors duration-500"></div>
+
+    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-0 transition-opacity duration-500 transform group-hover:rotate-12 group-hover:scale-125 z-0">
       <PawPrint size="lg" />
     </div>
 
-    {/* Silhouette */}
-    <div className="h-16 md:h-24 flex items-center justify-start mb-4 relative z-10 w-full">
-      <motion.div 
-        className="text-brown/30 group-hover:text-orange transition-colors duration-500 origin-left"
-      >
-        {breed.silhouette ? (
-          <svg width="80" height="80" viewBox="0 0 100 100" className="drop-shadow-sm w-16 h-16 md:w-20 md:h-20">
-            {breed.silhouette}
-          </svg>
-        ) : (
-          <PawPrint size="md" className="opacity-40" />
-        )}
-      </motion.div>
-    </div>
-
     {/* Content */}
-    <div className="flex flex-col items-start text-left relative z-10">
-      <span className="font-heading font-black text-brown text-lg md:text-xl mb-2 group-hover:text-orange-dark transition-colors">
+    <div className="flex flex-col items-start text-left relative z-10 p-6">
+      <span className="font-heading font-black text-brown text-lg md:text-xl mb-3 group-hover:text-white transition-colors duration-500">
         {breed.name}
       </span>
       <div className={cn(
-        "px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300",
+        "px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-sm",
         breed.hair === 'pelo duro' ? "bg-brown-light text-brown group-hover:bg-brown group-hover:text-white" :
         breed.hair === 'pelo lungo' ? "bg-teal-light text-teal group-hover:bg-teal group-hover:text-white" :
         "bg-orange-light text-orange group-hover:bg-orange group-hover:text-white"

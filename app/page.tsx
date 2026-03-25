@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { StorySection } from '@/components/sections/StorySection'
-import { CounterSection } from '@/components/sections/CounterSection'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 import { WhyMarciSection } from '@/components/sections/WhyMarciSection'
 import { DogBreedsSection } from '@/components/sections/DogBreedsSection'
@@ -9,7 +8,6 @@ import { BeforeAfterSection } from '@/components/sections/BeforeAfterSection'
 import { LokiDiarySection } from '@/components/sections/LokiDiarySection'
 import { HorizontalGallery } from '@/components/sections/HorizontalGallery'
 import { ProcessSection } from '@/components/sections/ProcessSection'
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { BookingCtaSection } from '@/components/sections/BookingCtaSection'
 import { FaqSection } from '@/components/sections/FaqSection'
 import { PawDivider } from '@/components/ui/PawDivider'
@@ -96,9 +94,6 @@ export default function HomePage() {
       {/* 3. StorySection (bg: #FFF5EC) */}
       <StorySection />
 
-      {/* 4. CounterSection (bg: #FFF5EC) */}
-      <CounterSection />
-
       {/* 5. PawDivider */}
       <div className="bg-bg flex justify-center w-full">
         <PawDivider className="opacity-80 scale-90 md:scale-100 transform-gpu" />
@@ -137,9 +132,6 @@ export default function HomePage() {
       </div>
 
       <FaqSection />
-
-      {/* 11. TestimonialsSection */}
-      <TestimonialsSection />
 
       {/* 12. BookingCtaSection (bg: #D4581A, forte) */}
       <BookingCtaSection />

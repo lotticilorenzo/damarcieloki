@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { 
   Drop, 
@@ -52,52 +53,64 @@ export function ServiceCard({
     <ServiceCardMotion 
       index={index} 
       isBagno={isBagno} 
-      className={className}
+      className={cn("flex flex-col p-6", className)}
     >
-      {/* Badge Top Right */}
-      {servizio.badge && (
-        <span className={cn(
-          "absolute top-[28px] right-[28px] font-sans font-bold text-[10px] uppercase tracking-wider px-3 py-[6px] rounded-full z-20",
-          badgeColors[servizio.badge] || 'bg-bg-alt text-text-sec'
-        )}>
-          {servizio.badge.replace('-', ' ')}
-        </span>
-      )}
+      {/* Box Immagine Header */}
+      <div className="relative w-full h-[180px] md:h-[220px] mb-6 rounded-[24px] overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+         <Image 
+           src={isBagno ? '/images/hero.png' : '/images/salon.png'} 
+           alt={servizio.nome} 
+           fill 
+           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+         />
+         <div className="absolute inset-0 bg-gradient-to-t from-brown/60 to-transparent mix-blend-multiply"></div>
+         
+         {/* Icon Badge Cromatico Overlay */}
+         <div className={cn("absolute bottom-4 left-4 p-[10px] rounded-xl z-20 shadow-lg backdrop-blur-md", "bg-white text-orange")}>
+           <Icon size={28} weight="duotone" />
+         </div>
+         
+         {/* Badge Top Right */}
+         {servizio.badge && (
+           <span className={cn(
+             "absolute top-4 right-4 font-sans font-bold text-[10px] uppercase tracking-wider px-3 py-[6px] rounded-full z-20 shadow-[0_4px_12px_rgba(0,0,0,0.1)]",
+             badgeColors[servizio.badge] || 'bg-white text-text-sec',
+             "backdrop-blur-md"
+           )}>
+             {servizio.badge.replace('-', ' ')}
+           </span>
+         )}
+      </div>
 
-      {/* Header card */}
-      <div className="flex flex-col items-start mb-4">
-        {/* Box Icona Duotone */}
-        <div className={cn("p-[10px] rounded-2xl mb-6 transition-transform duration-300 group-hover:scale-110", accentIconClass)}>
-          <Icon size={32} weight="duotone" />
-        </div>
-        
+      <div className="flex flex-col items-start px-2 mb-2">
         <span className="font-sans font-medium text-orange text-[12px] uppercase tracking-[0.10em] mb-2">
           {servizio.tagline}
         </span>
-        
         <h3 className="font-heading font-extrabold text-brown text-[24px] md:text-[26px] leading-[1.1] mb-2 pt-1 max-w-[200px] md:max-w-full text-balance">
           {servizio.nome}
         </h3>
       </div>
 
       {/* Testo descrittivo */}
-      <p className="font-sans font-normal text-text-sec text-[15px] leading-[1.65] flex-grow">
-        {servizio.descrizione}
-      </p>
+      <div className="px-2 flex-grow flex flex-col">
+        <p className="font-sans font-normal text-text-sec text-[15px] leading-[1.65] flex-grow">
+          {servizio.descrizione}
+        </p>
 
-      {/* Footer */}
-      <div className="flex flex-col pt-7 mt-5 border-t border-border/80">
-        <span className="font-sans font-medium text-teal text-[13px] tracking-wide inline-flex items-center mb-4 before:content-['•'] before:mr-[6px] before:text-teal/40">
-          {servizio.perChi}
-        </span>
+        {/* Footer */}
+        <div className="flex flex-col pt-6 mt-6 border-t border-border/80">
+          <span className="font-sans font-medium text-teal text-[13px] tracking-wide inline-flex items-center mb-4 before:content-['•'] before:mr-[6px] before:text-teal/40">
+            {servizio.perChi}
+          </span>
 
-        <Link 
-          href={`/servizi#${servizio.slug}`} 
-          className="font-sans font-bold text-orange hover:text-orange-dark inline-flex items-center w-fit outline-none focus-visible:ring-2 focus-visible:ring-orange rounded tracking-wide transition-colors"
-        >
-          Scopri di più 
-          <ServiceCardLinkIndicator />
-        </Link>
+          <Link 
+            href={`/servizi#${servizio.slug}`} 
+            className="font-sans font-bold text-orange hover:text-orange-dark inline-flex items-center w-fit outline-none focus-visible:ring-2 focus-visible:ring-orange rounded tracking-wide transition-colors group/link"
+          >
+            Vedi dettagli {servizio.nome.toLowerCase()}
+            <ServiceCardLinkIndicator />
+          </Link>
+        </div>
       </div>
     </ServiceCardMotion>
   )

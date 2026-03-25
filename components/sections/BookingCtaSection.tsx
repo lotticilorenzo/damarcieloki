@@ -62,7 +62,7 @@ export function BookingCtaSection() {
             </h2>
 
             <p className="font-sans text-[rgba(255,255,255,0.92)] text-[20px] font-medium mb-12 max-w-[40ch] text-balance">
-              Scrivimi — parliamo del tuo bestione.
+              Scrivimi, parliamo del tuo cagnolino.
             </p>
 
             {/* Pulsante Secondario diretto WhatsApp */}
