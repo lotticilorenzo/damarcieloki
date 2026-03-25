@@ -10,6 +10,8 @@ import { ScissorsFloat } from '../ui/ScissorsFloat'
 import { heroChildren } from '@/lib/animations'
 import { ctaConNome } from '@/lib/utils'
 import { soundManager } from '@/lib/sounds'
+import { MagneticButton } from '../ui/MagneticButton'
+import { ParallaxImage } from '../ui/ParallaxImage'
 
 export function HeroSection() {
   return (
@@ -95,16 +97,18 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full"
             >
               <Link href="/#prenota" className="outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-bg focus-visible:ring-offset-orange rounded-full w-full sm:w-auto">
-                <motion.div
-                  whileHover={{ scale: 1.04, backgroundColor: '#A83F0E' }}
-                  whileTap={{ scale: 0.96 }}
-                  onMouseEnter={() => soundManager.playPop()}
-                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-orange text-white rounded-full px-8 py-4 font-sans font-semibold text-lg shadow-[0_8px_20px_rgba(212,88,26,0.25)]"
-                >
-                  <span>{ctaConNome()}</span>
-                  <PawPrint size="xs" className="opacity-100! text-white" style={{ color: '#FFFDF8' }} />
-                </motion.div>
+                <MagneticButton className="w-full sm:w-auto z-20">
+                  <motion.div
+                    whileHover={{ scale: 1.04, backgroundColor: '#A83F0E' }}
+                    whileTap={{ scale: 0.96 }}
+                    onMouseEnter={() => soundManager.playPop()}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-orange text-white rounded-full px-8 py-4 font-sans font-semibold text-lg shadow-[0_8px_20px_rgba(212,88,26,0.25)]"
+                  >
+                    <span>{ctaConNome()}</span>
+                    <PawPrint size="xs" className="opacity-100! text-white" style={{ color: '#FFFDF8' }} />
+                  </motion.div>
+                </MagneticButton>
               </Link>
 
               <Link href="/servizi" className="outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-bg focus-visible:ring-offset-teal rounded-full w-full sm:w-auto">
@@ -126,17 +130,17 @@ export function HeroSection() {
             variants={heroChildren.item}
             className="w-full lg:w-[45%] relative aspect-[4/3] lg:aspect-square flex items-center justify-center overflow-visible rounded-[40px] shadow-2xl"
           >
-            {/* Foto Principale generata da AI */}
+            {/* Foto Principale generata da AI in ParallaxReveal mode */}
             <div className="absolute inset-0 rounded-[40px] overflow-hidden border-4 border-white shadow-inner">
-              <Image 
+              <ParallaxImage 
                 src="/images/hero.png" 
                 alt="Cagnolino felice alla toelettatura" 
                 fill
                 priority
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                overlayClassName="bg-gradient-to-t from-orange/10 to-transparent mix-blend-overlay"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-orange/10 to-transparent mix-blend-overlay"></div>
             </div>
 
             {/* Decorazioni SVG Fluttuanti */}

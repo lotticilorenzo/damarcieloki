@@ -12,6 +12,7 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { BookingCtaSection } from '@/components/sections/BookingCtaSection'
 import { FaqSection } from '@/components/sections/FaqSection'
 import { PawDivider } from '@/components/ui/PawDivider'
+import { MarqueeText } from '@/components/ui/MarqueeText'
 
 // 1. Metadata dedicato e ottimizzato specificamente per la Home Page
 export const metadata: Metadata = {
@@ -88,6 +89,8 @@ export default function HomePage() {
       <div className="bg-bg-alt flex justify-center w-full fill-current">
         <PawDivider className="opacity-80" />
       </div>
+
+      <MarqueeText text="TOELETTATURA • ADDESTRAMENTO • BENESSERE • AMORE" className="bg-orange text-white" speed={30} />
 
       {/* 3. StorySection (bg: #FFF5EC) */}
       <StorySection />

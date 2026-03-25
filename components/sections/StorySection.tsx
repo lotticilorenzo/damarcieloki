@@ -7,6 +7,7 @@ import { gsap } from 'gsap/dist/gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { PawPrint } from '../ui/PawPrint'
 import { cn } from '@/lib/utils'
+import { ParallaxImage } from '../ui/ParallaxImage'
 
 const milestones = [
   { year: '2009', title: 'Il primo cane entra in casa', text: 'E non esce più dal cuore. Nasce l\'amore incondizionato per i cani.' },
@@ -87,8 +88,13 @@ export function StorySection() {
         </div>
 
         <div className="w-full max-w-4xl mx-auto mb-24 md:mb-32 rounded-[32px] overflow-hidden shadow-2xl border-[6px] border-white aspect-video relative group">
-          <Image src="/images/salon.png" alt="Interno del salone toelettatura Da Marci e Loki a Parma" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brown/30 to-transparent"></div>
+          <ParallaxImage 
+            src="/images/salon.png" 
+            alt="Interno del salone toelettatura Da Marci e Loki a Parma" 
+            fill 
+            className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+            overlayClassName="bg-gradient-to-t from-brown/30 to-transparent"
+          />
         </div>
 
         {/* TIMELINE VERTICALE ZIG ZAG */}
