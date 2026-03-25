@@ -89,7 +89,7 @@ export default function HomePage() {
         <PawDivider className="opacity-80" />
       </div>
 
-      <MarqueeText text="TOELETTATURA • ADDESTRAMENTO • BENESSERE • AMORE" className="bg-orange text-white" speed={30} />
+      <MarqueeText text="TOELETTATURA • RELAX • BENESSERE • AMORE" className="bg-orange text-white" speed={30} />
 
       {/* 3. StorySection (bg: #FFF5EC) */}
       <StorySection />

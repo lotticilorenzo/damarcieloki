@@ -30,14 +30,6 @@ export function PawCursor() {
     mouseX.set(e.clientX)
     mouseY.set(e.clientY)
     if (!isVisible) setIsVisible(true)
-    
-    // Check se siamo su un input per mostrare il cursore di testo
-    const target = e.target as HTMLElement
-    if (!target) return
-    const isInput = target.closest('input, textarea, [contenteditable="true"]')
-    if (isInput) {
-      setCursorState('hidden')
-    }
   }, [mouseX, mouseY, isVisible])
 
   const handleMouseOver = useCallback((e: MouseEvent) => {

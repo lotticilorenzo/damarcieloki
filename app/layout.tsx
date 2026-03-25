@@ -53,6 +53,7 @@ import { ScrollProgress } from '@/components/ui/ScrollProgress'
 import { WhatsAppFAB } from '@/components/ui/WhatsAppFAB'
 import { PageTransition } from '@/components/ui/PageTransition'
 import { LiveBackground } from '@/components/ui/LiveBackground'
+import { SmoothScroll } from '@/components/ui/SmoothScroll'
 
 export default function RootLayout({
   children,
@@ -62,22 +63,24 @@ export default function RootLayout({
   return (
     <html lang="it" className={cn(nunito.variable, dmSans.variable, jetbrainsMono.variable)}>
       <body className="font-sans text-text-sec bg-bg min-h-[100dvh] antialiased overflow-x-hidden selection:bg-orange-light selection:text-orange-dark">
-        <LiveBackground />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateLocalBusinessLD()) }}
-        />
-        <ScrollProgress />
-        <Header />
-        <PageTransition>
-          <main className="flex-grow w-full flex flex-col relative overflow-clip">
-            {children}
-          </main>
-        </PageTransition>
-        <WhatsAppFAB />
-        <Footer />
-        <PawCursor />
-        <SoundToggle />
+        <SmoothScroll>
+          <LiveBackground />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(generateLocalBusinessLD()) }}
+          />
+          <ScrollProgress />
+          <Header />
+          <PageTransition>
+            <main className="flex-grow w-full flex flex-col relative overflow-clip">
+              {children}
+            </main>
+          </PageTransition>
+          <WhatsAppFAB />
+          <Footer />
+          <PawCursor />
+          <SoundToggle />
+        </SmoothScroll>
       </body>
     </html>
   )

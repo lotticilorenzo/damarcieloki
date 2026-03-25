@@ -48,12 +48,12 @@ export function HoverImageReveal({ children, imageSrc, className, rotation = 5 }
           top: 0,
           x,
           y,
-          translateX: '-50%',
-          translateY: '-110%', // Posizionata sopra il cursore per non ostacolare i click
+          translateX: '10%',
+          translateY: '10%', // Spostato in basso a destra del cursore
           pointerEvents: 'none',
           zIndex: 9999
         }}
-        className="w-[180px] h-[220px] md:w-[260px] md:h-[320px] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(106,58,42,0.2)] border-4 border-white origin-bottom will-change-transform"
+        className="w-[180px] h-[220px] md:w-[260px] md:h-[320px] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(106,58,42,0.2)] border-4 border-white origin-top-left will-change-transform"
       >
         <Image 
           src={imageSrc} 

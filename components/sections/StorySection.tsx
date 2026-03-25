@@ -11,8 +11,7 @@ import { ParallaxImage } from '../ui/ParallaxImage'
 
 const milestones = [
   { year: '2009', title: 'Amore a prima vista', text: 'Tutto inizia da un cane entrato in casa che non è più uscito dal mio cuore. Una passione travolgente.' },
-  { year: '2023', title: 'L\'addestramento', text: 'La curiosità diventa studio intenso. Inizio il percorso per diventare addestratore cinofilo.' },
-  { year: '2025', title: 'Certificazione', text: 'Diploma ENCI in tasca. Comprendere il comportamento canino ha decuplicato il mio amore per loro.' },
+  { year: '2023', title: 'Il comportamento', text: 'La curiosità diventa studio intenso per capire davvero cosa pensano i cani e come comunicare con loro.' },
   { year: 'gen 2026', title: 'Toelettatura', text: 'Unisco l\'approccio comportamentale alla cura estetica per garantire relax totale.' },
   { year: 'giu 2026', title: 'Da Marci & Loki', text: 'Apro a Parma. Per vivere a contatto con i cani e trasmettere la mia passione al pubblico.' },
 ]

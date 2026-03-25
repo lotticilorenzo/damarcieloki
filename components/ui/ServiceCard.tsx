@@ -93,12 +93,12 @@ export function ServiceCard({
 
       {/* Testo descrittivo */}
       <div className="px-2 flex-grow flex flex-col">
-        <p className="font-sans font-normal text-text-sec text-[15px] leading-[1.65] flex-grow">
+        <p className="font-sans font-normal text-text-sec text-[15px] leading-[1.65] mb-6">
           {servizio.descrizione}
         </p>
 
         {/* Footer */}
-        <div className="flex flex-col pt-6 mt-6 border-t border-border/80">
+        <div className="flex flex-col pt-6 mt-auto border-t border-border/80 w-full">
           <span className="font-sans font-medium text-teal text-[13px] tracking-wide inline-flex items-center mb-4 before:content-['•'] before:mr-[6px] before:text-teal/40">
             {servizio.perChi}
           </span>

@@ -12,7 +12,7 @@ const usps = [
   {
     icon: GraduationCap,
     title: "Capisco i cani. Davvero.",
-    text: <>Ho il <Link href="/chi-sono" className="underline decoration-orange/30 hover:decoration-orange transition-all">diploma di addestratore cinofilo</Link>. I cani difficili non mi spaventano, anzi, sono i miei preferiti.</>
+    text: <>Sono un <Link href="/chi-sono" className="underline decoration-orange/30 hover:decoration-orange transition-all">esperto di comportamento canino</Link>. I cani difficili non mi spaventano, anzi, sono i miei preferiti.</>
   },
   {
     icon: Dog,

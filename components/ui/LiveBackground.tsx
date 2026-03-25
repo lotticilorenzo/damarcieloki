@@ -16,7 +16,7 @@ export function LiveBackground() {
       delay: Math.random() * 5, // partono più in fretta
       duration: Math.random() * 15 + 20, // 20-35s attraversa lo schermo
       // Opacità alta per visibilità immediata e testing
-      opacity: Math.random() * 0.20 + 0.30, 
+      opacity: Math.random() * 0.10 + 0.10, // 0.1 to 0.2 (more subtle)
       color: Math.random() > 0.5 ? 'orange' : 'teal' as PawColor
     }))
     
