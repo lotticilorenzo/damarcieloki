@@ -41,11 +41,37 @@ export function HeroSection() {
             </motion.span>
             
             <motion.h1
-              variants={heroChildren.item}
-              className="font-heading italic font-black text-brown leading-[1.05] mb-5 w-full"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.12, delayChildren: 0.2 }
+                }
+              }}
+              className="font-heading italic font-black text-brown leading-[1.05] mb-5 w-full flex flex-wrap gap-x-2 lg:gap-x-4 overflow-hidden"
               style={{ fontSize: 'clamp(52px, 9vw, 100px)' }}
             >
-              <Link href="/servizi/bagno" className="hover:text-orange transition-colors">Bagnetto</Link>, <Link href="/servizi/taglio-forbice" className="hover:text-orange transition-colors font-medium">piega</Link> e <span className="text-orange">coccole.</span>
+              <div className="overflow-hidden flex items-end">
+                <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
+                  <Link href="/servizi/bagno" className="hover:text-orange transition-colors">Bagnetto</Link>,
+                </motion.span>
+              </div>
+              <div className="overflow-hidden flex items-end">
+                <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
+                  <Link href="/servizi/taglio-forbice" className="hover:text-orange transition-colors font-medium">piega</Link>
+                </motion.span>
+              </div>
+              <div className="overflow-hidden flex items-end">
+                <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
+                  e
+                </motion.span>
+              </div>
+              <div className="overflow-hidden flex items-end">
+                <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
+                  <span className="text-orange">coccole.</span>
+                </motion.span>
+              </div>
             </motion.h1>
 
             <motion.h2

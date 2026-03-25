@@ -31,8 +31,8 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] px-5 md:px-10",
         isScrolled 
-          ? "bg-[rgba(255,253,248,0.92)] backdrop-blur-[12px] saturate-150 border-b border-[rgba(240,232,221,0.8)] shadow-[0_4px_20px_rgba(106,58,42,0.06)] py-3" 
-          : "bg-bg border-b-2 border-border py-5"
+          ? "bg-white/60 backdrop-blur-2xl saturate-200 border-b border-border/40 shadow-[0_8px_32px_rgba(106,58,42,0.08)] py-3" 
+          : "bg-bg/95 backdrop-blur-sm border-b-2 border-border py-6"
       )}
     >
       <div className="max-w-[1200px] mx-auto flex items-center justify-between">

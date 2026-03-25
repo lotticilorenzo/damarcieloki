@@ -33,9 +33,10 @@ export function ServiceCardMotion({
     },
     hover: {
       y: -8,
+      scale: 1.02,
       rotate: tiltDir[index % tiltDir.length],
-      boxShadow: '0 20px 48px rgba(212, 88, 26, 0.18)',
-      transition: { type: 'spring', stiffness: 300, damping: 18 }
+      boxShadow: '0 24px 50px rgba(106, 58, 42, 0.12)',
+      transition: { type: 'spring' as const, stiffness: 300, damping: 18 }
     }
   }
 
