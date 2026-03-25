@@ -5,13 +5,13 @@ import Image, { type ImageProps } from 'next/image'
 import { ImagePlaceholder } from './ImagePlaceholder'
 import { cn } from '@/lib/utils'
 
-interface OptimizedImageProps extends Omit<ImageProps, 'onError'> {
+interface MarciImageProps extends Omit<ImageProps, 'onError'> {
   fallbackText?: string
   containerClassName?: string
   aspectRatio?: string
 }
 
-export function OptimizedImage({
+export function MarciImage({
   src,
   alt,
   fallbackText,
@@ -19,7 +19,7 @@ export function OptimizedImage({
   aspectRatio,
   className,
   ...props
-}: OptimizedImageProps) {
+}: MarciImageProps) {
   const [error, setError] = useState(false)
 
   if (error || !src) {

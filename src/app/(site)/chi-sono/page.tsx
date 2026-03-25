@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { LokiSticker } from '@/components/ui/LokiSticker'
 import { PawPrint } from '@/components/ui/PawPrint'
 import { PawDivider } from '@/components/ui/PawDivider'
-import { OptimizedImage } from '@/components/ui/OptimizedImage'
+import { MarciImage } from '@/components/ui/MarciImage'
 import { generateMetadataHelper, generateBreadcrumbLD } from '@/lib/seo'
 import { images } from '@/lib/images'
 
@@ -36,7 +36,7 @@ export default function ChiSonoPage() {
           <div className="shrink-0 relative group mt-8 md:mt-0">
             {/* Box contenitivo "Foto Marci" (Above Fold) */}
             <div className="w-[280px] h-[360px] md:w-[320px] md:h-[420px] rounded-[48px] overflow-hidden -rotate-2 hover:rotate-1 transition-transform duration-500 shadow-[0_24px_48px_rgba(106,58,42,0.12)] bg-bg-alt border-4 border-white relative z-10">
-              <OptimizedImage 
+            <MarciImage 
                 src={images.hero.marci}
                 alt="Marco toelettatore cani al lavoro a Parma"
                 fill
@@ -95,7 +95,7 @@ export default function ChiSonoPage() {
         {/* Linea temporale verticale in stile Long-Form */}
         <div className="flex flex-col gap-14 border-l-[3px] border-[rgba(240,232,221,0.9)] ml-4 md:ml-12 pl-8 md:pl-16 relative">
           {[
-            { y: '2009', t: 'Il primo cane entra in casa', d: 'Da lì non si torna indietro. Ne entra uno, e scopro immediatamente che il mondo gira molto meglio quando hai una coda affianco a te sul divano. La passione cinofila sboccia e prende letteralmente il sopravvento sulle altre priorità.' },
+            { y: '2009', t: 'Il primo cane entra in casa', d: 'Da lì non si torna indietro. Ne entra uno, e scopro immediatamente che il mondo gira molto meglio quando hai una coda affianco a te sul divano. La passione cinofila sboccia e prende letteralmente il sovvento sulle altre priorità.' },
             { y: '2023', t: 'Inizio corso addestratore cinofilo', d: 'Studio matto e disperato, teoria in aula, pratica all\'aperto al freddo, sudore e cani. Soprattutto tanti cani di ogni razza e tempra. Imparo a leggere i loro segnali calmanti prima ancora che abbaiano. Imparo a comunicare usando la postura e l\'energia, senza troppe parole inutili.' },
             { y: '2025', t: 'Diploma di addestratore cinofilo certificato', d: 'Il traguardo ufficiale. Il patentino nero su giallo. Ma capisco subito che è solo l\'inizio: la gestione comportamentale del cane diventa la solida base per qualcosa di più specifico e necessario sul territorio.' },
             { y: 'Gennaio 2026', t: 'Corso intensivo di toelettatura', d: 'Studio come combinare la psicologia del cane alle forbici dentate. Imparo la tecnica pura e le angolature per valorizzare ogni tipo di manto: dallo stripping a mano fino alle snodature impossibili.' },

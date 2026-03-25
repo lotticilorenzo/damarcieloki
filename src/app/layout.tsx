@@ -2,6 +2,11 @@ import type { Metadata } from 'next'
 import { Nunito, DM_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import { generateMetadataHelper, generateLocalBusinessLD } from '@/lib/seo'
+import dynamic from 'next/dynamic'
+
+const PawCursor = dynamic(() => import('@/components/ui/PawCursor').then(mod => mod.PawCursor), { ssr: false })
+const SoundToggle = dynamic(() => import('@/components/ui/SoundToggle').then(mod => mod.SoundToggle), { ssr: false })
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -27,12 +32,6 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
   adjustFontFallback: true,
 })
-
-import { generateMetadataHelper, generateLocalBusinessLD } from '@/lib/seo'
-import dynamic from 'next/dynamic'
-
-const PawCursor = dynamic(() => import('@/components/ui/PawCursor').then(mod => mod.PawCursor), { ssr: false })
-const SoundToggle = dynamic(() => import('@/components/ui/SoundToggle').then(mod => mod.SoundToggle), { ssr: false })
 
 export const metadata: Metadata = generateMetadataHelper(
   'homepage',

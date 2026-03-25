@@ -33,8 +33,6 @@ const generateServicesSchema = () => {
 }
 
 export default function ServiziPage({ searchParams }: { searchParams: { s?: string } }) {
-  // L'estrazione via searchParams nel server component abilita lo smistamento parametrico
-  // e al tempo stesso non rinuncia completamente ai benefit base SEO.
   const defaultServiceParam = (searchParams?.s as string) || 'bagno'
   const validSlugs = ['bagno', 'taglio-forbice', 'stripping', 'snodatura', 'bagno-medicato']
   const targetService = validSlugs.includes(defaultServiceParam) ? defaultServiceParam : 'bagno'

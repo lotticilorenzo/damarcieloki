@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion'
 import { cn } from '@/lib/utils'
-import { OptimizedImage } from '../ui/OptimizedImage'
+import { MarciImage } from '../ui/MarciImage'
 
 interface Example {
   id: string
@@ -90,7 +90,7 @@ const BeforeAfterSlider = ({ example }: { example: Example }) => {
     >
       {/* Immagine DOPO (Base) */}
       <div className="absolute inset-0">
-        <OptimizedImage 
+        <MarciImage 
           src={example.afterImage} 
           alt={`${example.label} - Risultato dopo la toelettatura`}
           fill
@@ -110,7 +110,7 @@ const BeforeAfterSlider = ({ example }: { example: Example }) => {
           style={{ x: xImage, width: containerWidth, height: '100%' }}
           className="relative"
         >
-          <OptimizedImage 
+          <MarciImage 
             src={example.beforeImage} 
             alt={`${example.label} - Prima della toelettatura`}
             fill
