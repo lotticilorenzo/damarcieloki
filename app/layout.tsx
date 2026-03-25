@@ -3,10 +3,8 @@ import { Nunito, DM_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { generateMetadataHelper, generateLocalBusinessLD } from '@/lib/seo'
-import dynamic from 'next/dynamic'
-
-const PawCursor = dynamic(() => import('@/components/ui/PawCursor').then(mod => mod.PawCursor), { ssr: false })
-const SoundToggle = dynamic(() => import('@/components/ui/SoundToggle').then(mod => mod.SoundToggle), { ssr: false })
+import { PawCursor } from '@/components/ui/PawCursor'
+import { SoundToggle } from '@/components/ui/SoundToggle'
 
 const nunito = Nunito({
   subsets: ['latin'],

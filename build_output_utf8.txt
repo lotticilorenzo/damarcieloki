@@ -1,0 +1,63 @@
+
+> my-app@0.1.0 build
+> next build
+
+▲ Next.js 16.2.1 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 3 errors:
+./app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module 'autoprefixer'
+Require stack:
+- C:\Users\lotti\Desktop\progetto-marcieloki\.next\build\chunks\[root-of-the-server]__0d-m0h0._.js
+- C:\Users\lotti\Desktop\progetto-marcieloki\.next\build\chunks\[turbopack]_runtime.js
+- C:\Users\lotti\Desktop\progetto-marcieloki\.next\build\postcss.js
+    [at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)]
+    [at Module._load (node:internal/modules/cjs/loader:1227:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:328:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1504:12)]
+    [at require (node:internal/modules/helpers:152:16)]
+    at require (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25) [C:\Users\lotti\Desktop\progetto-marcieloki\.next\build\chunks\[root-of-the-server]__0d-m0h0._.js:135:33]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+./app/layout.tsx:8:19
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+  [90m 6 |[0m ...[32mnext/dynamic'[0m
+  [90m 7 |[0m ...
+[31m[1m>[0m [90m 8 |[0m ...amic(() => [36mimport[0m([32m'@/components/ui/PawCursor'[0m).then(mod => mod.[33mPawCursor[0m), { ssr: [36mfalse[0m })
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 9 |[0m ...ynamic(() => [36mimport[0m([32m'@/components/ui/SoundToggle'[0m).then(mod => mod.[33mSoundToggle[0m), { ssr:.[36m..[0m
+  [90m10 |[0m ...
+  [90m11 |[0m ...({
+
+Ecmascript file had an error
+
+
+./app/layout.tsx:9:21
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+  [90m 7 |[0m ...
+  [90m 8 |[0m ...(() => [36mimport[0m([32m'@/components/ui/PawCursor'[0m).then(mod => mod.[33mPawCursor[0m), { ssr: [36mfalse[0m })
+[31m[1m>[0m [90m 9 |[0m ...ic(() => [36mimport[0m([32m'@/components/ui/SoundToggle'[0m).then(mod => mod.[33mSoundToggle[0m), { ssr: [36mfal..[0m.
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m ...
+  [90m11 |[0m ...
+  [90m12 |[0m ...
+
+Ecmascript file had an error
+
+
+    at require (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25) [C:\Users\lotti\Desktop\progetto-marcieloki\.next\build\chunks\[root-of-the-server]__0d-m0h0._.js:135:33])
+    at <unknown> (./app/layout.tsx:8:19)
+    at <unknown> (./app/layout.tsx:9:21)
