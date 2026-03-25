@@ -15,9 +15,9 @@ export function LiveBackground() {
       size: Math.random() * 20 + 20, // 20px a 40px
       delay: Math.random() * 10,
       duration: Math.random() * 20 + 30, // 30-50s per attraversare lo schermo, fluttuazione lenta
-      // Opacità tarata per essere visibile ma molto elegante (0.15 a 0.25)
+      // Opacità tarata per essere visibile (0.20 a 0.35) e volare sopra i contenuti
       // Nota: PawPrint ha già una sua /50 opacity interna, quindi l'effetto finale è dimezzato.
-      opacity: Math.random() * 0.15 + 0.10, 
+      opacity: Math.random() * 0.15 + 0.20, 
       color: Math.random() > 0.5 ? 'orange' : 'teal' as PawColor
     }))
     
@@ -28,9 +28,8 @@ export function LiveBackground() {
   if (!hydration) return null
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-      {/* Sfumatura morbida dal centro verso l'esterno per garantire massima leggibilità del testo */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,253,248,0.75)_0%,rgba(255,253,248,0.1)_100%)] z-10 mix-blend-overlay"></div>
+    <div className="fixed inset-0 pointer-events-none z-[50] overflow-hidden">
+      {/* Sfondo trasparente pulito: le zampine volano magicamente sopra l'intera app */}
       
       <AnimatePresence>
         {paws.map((paw) => (
