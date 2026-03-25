@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { PawPrint } from '../ui/PawPrint'
@@ -80,6 +81,10 @@ export function StorySection() {
           <p className="font-sans text-text-sec text-[16px] md:text-[18px] max-w-[50ch] text-balance leading-relaxed">
             Tutto inizia nel 2009, da un cane che è entrato in casa e non ne è più uscito (dal cuore).
           </p>
+        </div>
+
+        <div className="w-full max-w-3xl mx-auto mb-20 md:mb-24 rounded-[32px] overflow-hidden shadow-xl border-4 border-white aspect-video relative">
+          <Image src="/images/salon.png" alt="Interno del salone toelettatura Da Marci e Loki a Parma" fill className="object-cover" />
         </div>
 
         <div className="relative w-full max-w-5xl mx-auto">

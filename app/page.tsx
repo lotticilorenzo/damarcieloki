@@ -10,6 +10,7 @@ import { LokiDiarySection } from '@/components/sections/LokiDiarySection'
 import { ProcessSection } from '@/components/sections/ProcessSection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { BookingCtaSection } from '@/components/sections/BookingCtaSection'
+import { FaqSection } from '@/components/sections/FaqSection'
 import { PawDivider } from '@/components/ui/PawDivider'
 
 // 1. Metadata dedicato e ottimizzato specificamente per la Home Page
@@ -127,6 +128,8 @@ export default function HomePage() {
       <div className="bg-[var(--orange)] flex justify-center w-full">
         <PawDivider className="opacity-[0.25] scale-90 md:scale-100 filter drop-shadow-sm mix-blend-overlay" />
       </div>
+
+      <FaqSection />
 
       {/* 11. TestimonialsSection */}
       <TestimonialsSection />

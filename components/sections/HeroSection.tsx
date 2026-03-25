@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { PawPrint } from '../ui/PawPrint'
@@ -26,10 +26,10 @@ export function HeroSection() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 w-full z-10">
         {/* Entry Stagger della composizione totale */}
         <motion.div
-          variants={heroChildren.container}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8"
+           variants={heroChildren.container}
+           initial="hidden"
+           animate="visible"
+           className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8"
         >
           {/* LATO SINISTRO (55%) */}
           <div className="w-full lg:w-[55%] flex flex-col items-start lg:pr-6">
@@ -98,35 +98,39 @@ export function HeroSection() {
           {/* LATO DESTRO (45%) */}
           <motion.div
             variants={heroChildren.item}
-            className="w-full lg:w-[45%] relative aspect-[4/3] lg:aspect-square flex items-center justify-center overflow-hidden rounded-[40px]"
+            className="w-full lg:w-[45%] relative aspect-[4/3] lg:aspect-square flex items-center justify-center overflow-visible rounded-[40px] shadow-2xl"
           >
-            {/* Composizione Background */}
-            <BubbleField />
+            {/* Foto Principale generata da AI */}
+            <div className="absolute inset-0 rounded-[40px] overflow-hidden border-4 border-white shadow-inner">
+              <Image 
+                src="/images/hero.png" 
+                alt="Cagnolino felice alla toelettatura" 
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-orange/10 to-transparent mix-blend-overlay"></div>
+            </div>
 
             {/* Decorazioni SVG Fluttuanti */}
+            <BubbleField />
             <ScissorsFloat 
               size="lg" 
               variant="open" 
-              className="absolute top-[15%] left-[15%] opacity-60 pointer-events-none" 
-            />
-            
-            <ScissorsFloat 
-              size="sm" 
-              variant="closed" 
-              className="absolute bottom-[20%] left-[15%] opacity-80 pointer-events-none z-20" 
+              className="absolute top-[8%] left-[8%] opacity-90 pointer-events-none drop-shadow-md z-10" 
             />
 
-            {/* Loki Hero Protagonista: Floating +14px accentuato */}
+            {/* Loki Hero Protagonista: in sovrimpressione nell'angolo */}
             <motion.div
-              animate={{ y: [0, -14, 0] }}
-              transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative z-10"
+              animate={{ y: [0, -8, 0], rotate: [-2, 2, -2] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -bottom-6 -right-6 z-20 bg-white p-2 rounded-full shadow-xl border border-border"
             >
               <LokiSticker 
                 expression="happy" 
-                size="lg" 
-                className="drop-shadow-[0_20px_48px_rgba(212,88,26,0.18)]"
-                fetchPriority="high"
+                size="md" 
+                className="drop-shadow-sm"
               />
             </motion.div>
           </motion.div>

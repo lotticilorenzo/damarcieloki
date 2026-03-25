@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import { servizi } from '@/data/services'
 import { BookingForm } from '@/components/forms/BookingForm'
+import { FaqSection } from '@/components/sections/FaqSection'
 import { 
   CheckCircle, 
   Info, 
@@ -162,6 +163,9 @@ export default function ServiziPage({ searchParams }: { searchParams: { s?: stri
           )
         })}
       </section>
+
+      {/* Sezione FAQ */}
+      <FaqSection />
 
       {/* Booking Form Condiviso a fine pagina collegato via prop 'targetService' */}
       <section id="prenota-ora" className="px-6 md:px-12 max-w-[680px] mx-auto w-full mt-32 md:mt-40 scroll-mt-[100px] relative z-20">

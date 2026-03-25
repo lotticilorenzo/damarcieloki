@@ -75,8 +75,8 @@ export function PawCursor() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    // Check iniziali per accessibilità e device
-    const touchCheck = window.matchMedia('(pointer: coarse)').matches
+    // Disabilita cursore su mobile (< 768px)
+    const touchCheck = window.innerWidth < 768
     const motionCheck = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     
     setIsTouch(touchCheck)
