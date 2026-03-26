@@ -4,10 +4,10 @@ import { LokiSticker } from '../ui/LokiSticker'
 import { PawDivider } from '../ui/PawDivider'
 
 const links = [
+  { name: 'Home', href: '/' },
   { name: 'Chi Sono', href: '/chi-sono' },
   { name: 'Servizi', href: '/servizi' },
   { name: 'FAQ', href: '/faq' },
-  { name: 'Prezzi', href: '/prezzi' },
   { name: 'Contatti', href: '/contatti' },
 ]
 

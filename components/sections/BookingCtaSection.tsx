@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { LokiSticker } from '../ui/LokiSticker'
 import { BookingForm } from '../forms/BookingForm'
-import { whatsappLink } from '@/lib/utils'
+import { whatsappLink, handleWhatsAppClick } from '@/lib/utils'
 import { PeekabooElement } from '../ui/PeekabooElement'
 
 // Sub-componentino per generare bolle galleggianti
@@ -22,7 +22,7 @@ const CtaBubble = ({ duration, dx, dy, className }: { duration: string, dx: stri
 
 export function BookingCtaSection() {
   return (
-    <section id="prenota" className="relative py-24 md:py-32 bg-orange overflow-hidden border-t-[6px] border-orange-dark">
+    <section id="prenota" className="relative py-16 md:py-32 bg-orange overflow-hidden border-t-[6px] border-orange-dark">
       
       {/* Sfondo Astratto Bolle Ipnotiche */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -57,17 +57,18 @@ export function BookingCtaSection() {
               </span>
             </div>
 
-            <h2 className="font-heading font-extrabold text-white text-[clamp(36px,5vw,52px)] leading-[1.05] tracking-tight mb-5 text-balance drop-shadow-sm">
+            <h2 className="font-heading font-extrabold text-white text-[clamp(28px,8vw,52px)] leading-[1.05] tracking-tight mb-5 text-balance drop-shadow-sm">
               Il tuo cane merita una giornata da VIP. <span className="font-sans whitespace-nowrap pl-1" aria-hidden="true">🐾</span>
             </h2>
 
-            <p className="font-sans text-[rgba(255,255,255,0.92)] text-[20px] font-medium mb-12 max-w-[40ch] text-balance">
+            <p className="font-sans text-[rgba(255,255,255,0.92)] text-[18px] md:text-[20px] font-medium mb-12 max-w-[40ch] text-balance">
               Scrivimi, parliamo del tuo cagnolino.
             </p>
 
             {/* Pulsante Secondario diretto WhatsApp */}
             <motion.a 
               href={whatsappLink("Ciao Marci! Vorrei prenotare subito una toelettatura 🐾.")} 
+              onClick={(e) => handleWhatsAppClick(e, "Ciao Marci! Vorrei prenotare subito una toelettatura 🐾.")}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ 
@@ -76,7 +77,7 @@ export function BookingCtaSection() {
                 transition: { type: 'spring' as const, stiffness: 400, damping: 17 }
               }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center bg-white text-orange rounded-full px-[36px] py-[16px] font-sans font-extrabold text-[18px] tracking-wide outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange shadow-[0_12px_40px_rgba(107,58,42,0.25)] transition-shadow"
+              className="inline-flex items-center justify-center bg-white text-orange rounded-full px-[32px] md:px-[36px] py-[14px] md:py-[16px] font-sans font-extrabold text-[16px] md:text-[18px] tracking-wide outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange shadow-[0_12px_40px_rgba(107,58,42,0.25)] transition-shadow w-full sm:w-auto"
             >
               Scrivimi su WhatsApp
             </motion.a>
@@ -84,7 +85,7 @@ export function BookingCtaSection() {
           </div>
 
           {/* LATO DESTRO: Integrazione Form */}
-          <div className="w-full lg:w-[52%] max-w-[540px] lg:max-w-none flex justify-center">
+          <div className="w-full lg:w-[52%] max-w-[540px] lg:max-w-none flex justify-center mt-8 lg:mt-0">
             <BookingForm />
           </div>
 

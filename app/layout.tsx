@@ -61,8 +61,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={cn(nunito.variable, dmSans.variable, jetbrainsMono.variable)}>
-      <body className="font-sans text-text-sec bg-bg min-h-[100dvh] antialiased overflow-x-hidden selection:bg-orange-light selection:text-orange-dark">
+    <html lang="it" className={cn(nunito.variable, dmSans.variable, jetbrainsMono.variable)} suppressHydrationWarning>
+      <body className="font-sans text-text-sec bg-bg min-h-[100dvh] antialiased overflow-x-hidden selection:bg-orange-light selection:text-orange-dark" suppressHydrationWarning>
         <SmoothScroll>
           <LiveBackground />
           <script

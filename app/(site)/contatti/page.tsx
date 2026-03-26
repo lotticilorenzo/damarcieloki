@@ -16,14 +16,14 @@ export default function ContattiPage() {
   const breadcrumbLD = generateBreadcrumbLD([{ name: 'Contatti', path: '/contatti' }])
 
   return (
-    <main className="flex flex-col min-h-[100dvh] pt-32 pb-24 md:pb-32 bg-bg-alt overflow-x-hidden relative">
+    <main className="flex flex-col min-h-[100dvh] pt-32 pb-16 md:pb-32 bg-bg-alt overflow-x-hidden relative">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLD) }} />
 
       <div className="max-w-[1240px] mx-auto px-6 md:px-12 relative z-10 w-full">
         
         {/* Header Sezione Visiva Introduttiva */}
-        <div className="mb-16 md:mb-24 text-center mt-4">
-          <h1 className="font-heading font-black text-brown text-[clamp(44px,6vw,68px)] leading-[1.0] tracking-tight mb-6">
+        <div className="mb-12 md:mb-24 text-center mt-4">
+          <h1 className="font-heading font-black text-brown text-[clamp(36px,8vw,68px)] leading-[1.0] tracking-tight mb-6">
             Parliamo del tuo cane.
           </h1>
           <p className="font-sans text-text-sec text-[18px] md:text-[21px] font-medium max-w-[48ch] mx-auto text-balance leading-[1.65]">
@@ -32,7 +32,7 @@ export default function ContattiPage() {
         </div>
 
         {/* Impaginazione 2 Colonne (Info vs Form) */}
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           
           {/* LATO SINISTRO: Recap Info Aziendali & Mappa (45%) */}
           <div className="w-full lg:w-[45%] flex flex-col gap-12">
@@ -82,22 +82,17 @@ export default function ContattiPage() {
 
             </div>
 
-            {/* Google Maps iFrame Wrapper - Come da requisiti (Placeholder) */}
-            <div className="w-full aspect-[4/3] md:aspect-video lg:aspect-square bg-[rgba(240,232,221,0.5)] rounded-[32px] border-2 border-dashed border-border/80 flex flex-col items-center justify-center relative overflow-hidden group">
-              {/* L'iframe vuoto risiede strutturalmente per accessibilità, invisibile dietro i placeholder */}
-              <iframe 
-                 src="about:blank"
-                 className="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
-                 title="Mappa in arrivo" 
-                 aria-hidden="true" 
-              />
-              
-              {/* Visivamente il vero placeholder decorativo come discusso */}
-              <MapTrifold size={52} weight="duotone" className="text-orange opacity-[0.35] mb-4 group-hover:scale-110 group-hover:opacity-60 transition-all duration-500" />
-              <span className="font-heading font-extrabold text-brown text-[22px] opacity-80">Mappa in arrivo</span>
-              <p className="font-sans text-[15px] text-text-sec mt-2 opacity-70 font-medium">
-                L&apos;integrazione Google Maps verrà sbloccata qui.
-              </p>
+            {/* Google Maps iFrame */}
+            <div className="w-full aspect-[4/3] lg:aspect-square bg-white rounded-[32px] border border-border shadow-[0_8px_30px_rgba(106,58,42,0.06)] overflow-hidden relative group p-2">
+              <div className="w-full h-full relative rounded-[24px] overflow-hidden">
+                <iframe 
+                   src="https://maps.google.com/maps?q=Piazzale%20della%20Pace%2010%2C%20Parma%2C%20Italy&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                   className="absolute inset-0 w-full h-full opacity-90 group-hover:opacity-100 grayscale-[10%] group-hover:grayscale-0 transition-all duration-500"
+                   title="Mappa del Salone Da Marci & Loki" 
+                   loading="lazy"
+                   referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
 
           </div>

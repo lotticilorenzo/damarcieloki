@@ -4,19 +4,19 @@ export const stepsPrenotazione: ProcessStep[] = [
   {
     numero: '01',
     titolo: 'Raccontami di lui',
-    descrizione: 'Scrivimi su WhatsApp o chiamami. Parliamo del tuo cane e delle sue peculiarità, così per me sarà più facile prepararmi ad accudirlo.',
+    descrizione: 'Scrivimi su WhatsApp. Dimmi tutto del tuo peloso: come si chiama, cosa odia e, soprattutto, quanti nodi nasconde. Niente segreti tra noi.',
     emoji: '💬'
   },
   {
     numero: '02',
-    titolo: 'Vieni a trovarci',
-    descrizione: 'Portalo nella nostra sede. Lavoreremo con calma e dedizione per farlo stare molto meglio e togliergli ogni stress.',
+    titolo: 'Portalo da me',
+    descrizione: 'Niente code d\'attesa o gabbie, il salone è tutto per lui in esclusiva. Mi prendo io tutto il tempo che serve per metterlo a suo agio prima ancora dell\'acqua.',
     emoji: '🏠'
   },
   {
     numero: '03',
-    titolo: 'Felice e profumato',
-    descrizione: 'Tornerà a casa rilassato, bellissimo e super profumato. Un risultato che si vede e si sente.',
+    titolo: 'Pronto da spupazzare',
+    descrizione: 'Torna a casa bello come non mai, morbidissimo e, per una volta, profumato per davvero. Preparati a fargli un milione di foto.',
     emoji: '✨'
   }
 ]

@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { motion } from 'framer-motion'
 import { CircleNotch } from '@phosphor-icons/react/dist/ssr/CircleNotch'
-import { ctaConNome, whatsappLink } from '@/lib/utils'
+import { ctaConNome, whatsappLink, handleWhatsAppClick } from '@/lib/utils'
 import { LokiSticker } from '../ui/LokiSticker'
 import { cn } from '@/lib/utils'
 import { soundManager } from '@/lib/sounds'
@@ -88,6 +88,7 @@ export function BookingForm({ initialService = 'bagno' }: { initialService?: 'ba
         </p>
         <a 
           href={whatsappLink(`Ciao Marci! Vorrei prenotare una seduta per ${nomeCaneWatch || 'il mio cane'}. Purtroppo il sito mi ha dato errore.`)}
+          onClick={(e) => handleWhatsAppClick(e, `Ciao Marci! Vorrei prenotare una seduta per ${nomeCaneWatch || 'il mio cane'}. Purtroppo il sito mi ha dato errore.`)}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center text-orange font-bold hover:text-orange-dark focus-visible:ring-2 focus-visible:ring-orange rounded px-2 hover:underline underline-offset-4 transition-colors"
@@ -114,7 +115,7 @@ export function BookingForm({ initialService = 'bagno' }: { initialService?: 'ba
           id={id}
           {...register(registerName)}
           className={cn(
-            "block px-4 pb-2.5 pt-6 w-full text-[15px] font-sans font-medium text-brown bg-transparent rounded-xl border appearance-none outline-none ring-0 transition-all peer animate-focus-pulse",
+            "block px-4 pb-2 pt-6 w-full h-[58px] text-[15px] font-sans font-medium text-brown bg-transparent rounded-xl border appearance-none outline-none ring-0 transition-all peer animate-focus-pulse",
             error ? "border-red-500" : "border-border hover:border-border-hover focus:border-orange"
           )}
           placeholder=" "
@@ -123,13 +124,13 @@ export function BookingForm({ initialService = 'bagno' }: { initialService?: 'ba
           htmlFor={id}
           initial={false}
           animate={{
-            y: isFloating ? -12 : 0,
-            x: isFloating ? 0 : 0,
-            scale: isFloating ? 0.82 : 1,
+            top: isFloating ? '12px' : '50%',
+            y: isFloating ? 0 : '-50%',
+            scale: isFloating ? 0.80 : 1,
             color: isFloating ? '#D4581A' : '#B09080', // orange : text-muted
           }}
-          transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-          className="absolute text-[15px] font-sans top-4 left-4 pointer-events-none origin-[0] tracking-wide"
+          transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+          className="absolute text-[15px] font-sans left-4 pointer-events-none origin-[0] tracking-wide"
         >
           {label}
         </motion.label>
@@ -187,19 +188,19 @@ export function BookingForm({ initialService = 'bagno' }: { initialService?: 'ba
         <textarea
           id="note"
           {...register('note')}
-          className="block px-4 pb-2.5 pt-6 w-full text-[15px] font-sans font-medium text-brown bg-transparent rounded-xl border border-border hover:border-border-hover appearance-none outline-none ring-0 focus:border-orange animate-focus-pulse transition-all peer resize-none min-h-[90px]"
+          className="block px-4 pb-4 pt-7 w-full text-[15px] font-sans font-medium text-brown bg-transparent rounded-xl border border-border hover:border-border-hover appearance-none outline-none ring-0 focus:border-orange animate-focus-pulse transition-all peer resize-none min-h-[110px]"
           placeholder=" "
         />
         <motion.label 
           htmlFor="note"
           initial={false}
           animate={{
-            y: !!watch('note') ? -12 : 0,
-            scale: !!watch('note') ? 0.82 : 1,
+            top: !!watch('note') ? '12px' : '24px',
+            scale: !!watch('note') ? 0.80 : 1,
             color: !!watch('note') ? '#D4581A' : '#B09080',
           }}
-          transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-          className="absolute text-[15px] font-sans top-4 left-4 pointer-events-none origin-[0] tracking-wide"
+          transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+          className="absolute text-[15px] font-sans left-4 pointer-events-none origin-[0] tracking-wide"
         >
           Qualcosa che devo sapere? (opzionale)
         </motion.label>

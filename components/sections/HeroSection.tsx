@@ -17,7 +17,7 @@ import { HoverImageReveal } from '../ui/HoverImageReveal'
 export function HeroSection() {
   return (
     <section
-      className="relative flex items-center justify-center min-h-[100dvh] pt-24 pb-16 overflow-hidden"
+      className="relative flex items-center justify-center min-h-[100dvh] pt-[120px] md:pt-[160px] pb-12 md:pb-16 overflow-hidden"
       style={{
         background: `
           radial-gradient(ellipse at 75% 20%, rgba(212,88,26,0.10) 0%, transparent 55%),
@@ -53,7 +53,7 @@ export function HeroSection() {
                 }
               }}
               className="font-heading italic font-black text-brown leading-[1.05] mb-5 w-full flex flex-wrap gap-x-2 lg:gap-x-4 overflow-hidden"
-              style={{ fontSize: 'clamp(52px, 9vw, 100px)' }}
+              style={{ fontSize: 'clamp(42px, 11vw, 100px)' }}
             >
               <div className="overflow-hidden flex items-end">
                 <motion.span variants={{ hidden: { y: '100%', opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
@@ -93,7 +93,7 @@ export function HeroSection() {
 
             <motion.p
               variants={heroChildren.item}
-              className="font-sans font-normal text-text-sec text-[16px] md:text-[17px] leading-[1.75] max-w-[52ch] mb-10 text-balance"
+              className="font-sans font-normal text-text-sec text-[16px] md:text-[17px] leading-[1.75] max-w-[52ch] mb-8 md:mb-10 text-balance"
             >
               Tutto nasce da un amore smisurato. Sono Marci, <span className="font-semibold text-brown">toelettatore e addestratore cinofilo a Parma</span>. Ogni cane è un'anima unica e speciale: merita dedizione, pazienza e le cure necessarie per un'esperienza senza stress, trattato con lo stesso identico amore con cui lo tratteresti tu.
             </motion.p>
@@ -143,6 +143,7 @@ export function HeroSection() {
                 alt="Cagnolino felice alla toelettatura" 
                 fill
                 priority
+                containerClassName="w-full h-full"
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 overlayClassName="bg-gradient-to-t from-orange/10 to-transparent mix-blend-overlay"

@@ -10,7 +10,7 @@ interface ParallaxImageProps extends ImageProps {
   overlayClassName?: string
 }
 
-export function ParallaxImage({ containerClassName, overlayClassName, ...props }: ParallaxImageProps) {
+export function ParallaxImage({ containerClassName, overlayClassName, priority, ...props }: ParallaxImageProps & { priority?: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -28,13 +28,14 @@ export function ParallaxImage({ containerClassName, overlayClassName, ...props }
       {/* Curtain Reveal */}
       <motion.div 
         initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
-        whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+        whileInView={!priority ? { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" } : undefined}
+        animate={priority ? { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" } : undefined}
         viewport={{ once: true, margin: "-10%" }}
-        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: priority ? 0.3 : 0 }}
         className="absolute inset-[-15%]" // Deve sbordare per permettere il parallax senza mostrare il bordo vuoto
       >
         <motion.div style={{ y }} className="relative w-full h-full will-change-transform">
-          <Image {...props} />
+          <Image priority={priority} {...props} />
           {overlayClassName && <div className={cn("absolute inset-0", overlayClassName)} />}
         </motion.div>
       </motion.div>

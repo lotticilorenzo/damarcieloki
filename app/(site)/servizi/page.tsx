@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { servizi } from '@/data/services'
+import Image from 'next/image'
 import { BookingForm } from '@/components/forms/BookingForm'
 import { FaqSection } from '@/components/sections/FaqSection'
 import { 
@@ -11,7 +12,8 @@ import {
   Scissors,
   HandPointing,
   ArrowsCounterClockwise,
-  FirstAid
+  FirstAid,
+  ArrowRight
 } from '@phosphor-icons/react/dist/ssr'
 
 import { generateMetadataHelper, generateServiceLD, generateBreadcrumbLD } from '@/lib/seo'
@@ -48,117 +50,114 @@ export default function ServiziPage({ searchParams }: { searchParams: { s?: stri
           Cosa facciamo. E bene.
         </h1>
         <p className="font-sans text-text-sec text-[18px] md:text-[21px] max-w-[48ch] mx-auto text-balance leading-relaxed">
-          Nessuna fretta. Nessun compromesso sulla qualità finale. Scegli il servizio perfetto per il manto del tuo migliore amico.
+          Nessuna fretta. Nessun compromesso sulla qualità finale. <br className="hidden md:block"/>
+          Scegli il servizio perfetto per il manto del tuo migliore amico.
         </p>
       </section>
 
-      {/* Rassegna dei Servizi estesa in formato Long-Form */}
-      <section className="px-6 md:px-12 max-w-[960px] mx-auto w-full flex flex-col gap-12 md:gap-16 relative z-10">
-        {servizi.map((s) => {
-          const IconMap: Record<string, React.ElementType> = {
-            Drop,
-            Scissors,
-            HandPointing,
-            ArrowsCounterClockwise,
-            FirstAid,
-            PawPrint
-          }
+      {/* Rassegna dei Servizi in formato "Magazine Z-Pattern" */}
+      <section className="px-6 md:px-12 max-w-[1200px] mx-auto w-full flex flex-col gap-24 md:gap-32 relative z-10">
+        {servizi.map((s, index) => {
+          const IconMap: Record<string, React.ElementType> = { Drop, Scissors, HandPointing, ArrowsCounterClockwise, FirstAid }
           const Icon = IconMap[s.icon] || PawPrint
           
-          // Tailwind dynamic composition map for tailwind extractor
           const classMaps = {
-            orange: { text: 'text-orange', bg: 'bg-orange-light' },
-            teal: { text: 'text-teal', bg: 'bg-teal-light' },
-            brown: { text: 'text-brown', bg: 'bg-brown-light' }
+            orange: { text: 'text-orange', bg: 'bg-orange-light', border: 'border-orange', borderLight: 'border-orange-dark/10' },
+            teal: { text: 'text-teal', bg: 'bg-teal-light', border: 'border-teal', borderLight: 'border-teal-dark/10' },
+            brown: { text: 'text-brown', bg: 'bg-brown-light', border: 'border-brown', borderLight: 'border-brown/10' }
           }
           
-          const iconColors = classMaps[s.colorAccent] || classMaps.orange
-          let badgeColors = classMaps.orange
-          if (s.badge === 'su-prescrizione') badgeColors = classMaps.teal
-          if (s.badge === 'per-esperti') badgeColors = classMaps.brown
+          const theme = classMaps[s.colorAccent] || classMaps.orange
+          let badgeTheme = classMaps.orange
+          if (s.badge === 'su-prescrizione') badgeTheme = classMaps.teal
+          if (s.badge === 'per-esperti') badgeTheme = classMaps.brown
+
+          const isEven = index % 2 === 0
+          
+          // Image mapping
+          const imageMap: Record<string, string> = {
+            'bagno': '/images/srv_bagno.png',
+            'taglio-forbice': '/images/srv_taglio_forbice.png',
+            'stripping': '/images/srv_stripping.png',
+            'snodatura': '/images/srv_snodatura.png',
+            'bagno-medicato': '/images/srv_bagno_medicato.png',
+          }
+          const imageSrc = imageMap[s.slug] || '/images/hero.png'
 
           return (
             <article 
               key={s.id} 
               id={s.slug} 
-              className="flex flex-col md:flex-row gap-8 md:gap-12 bg-white p-8 md:p-12 md:pb-16 rounded-[32px] md:rounded-[40px] shadow-[0_12px_36px_rgba(106,58,42,0.06)] border border-border scroll-mt-[120px] transition-all duration-300 hover:shadow-[0_16px_48px_rgba(106,58,42,0.09)] hover:border-[rgba(240,232,221,0.9)]"
+              className={`flex flex-col gap-10 scroll-mt-[120px] ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center`}
             >
               
-              {/* Box Icona Laterale */}
-              <div className="shrink-0 flex flex-col items-start gap-4">
-                <div className={`w-[88px] h-[88px] rounded-[28px] flex items-center justify-center shadow-sm ${iconColors.text} ${iconColors.bg}`}>
-                  <Icon size={44} weight="duotone" />
+              {/* Blocco Immagine */}
+              <div className="w-full lg:w-1/2 relative group">
+                <div className={`absolute inset-0 bg-gradient-to-tr from-black/5 to-transparent rounded-[40px] md:rounded-[56px] ${isEven ? 'translate-x-[12px] translate-y-[12px]' : '-translate-x-[12px] translate-y-[12px]'}`}></div>
+                <div className={`w-full aspect-[4/3] lg:aspect-[6/5] rounded-[40px] md:rounded-[56px] overflow-hidden relative border-8 border-white shadow-[0_24px_48px_rgba(106,58,42,0.12)] transform-gpu transition-transform duration-700 hover:scale-[1.01]`}>
+                  <Image 
+                    src={imageSrc}
+                    alt={s.nome}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  {/* Etichetta Icona sull'immagine */}
+                  <div className={`absolute bottom-6 ${isEven ? 'left-6' : 'right-6'} w-[72px] h-[72px] md:w-[88px] md:h-[88px] rounded-[24px] bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg border-[3px] border-white`}>
+                    <Icon size={40} weight="duotone" className={theme.text} />
+                  </div>
                 </div>
               </div>
               
-              {/* Corpo Descrittivo Completo */}
-              <div className="flex-1 flex flex-col">
-                <div className="flex flex-wrap flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
-                  <h2 className="font-heading font-extrabold text-brown text-[28px] md:text-[34px] leading-tight pr-2">
+              {/* Blocco Testo */}
+              <div className="w-full lg:w-1/2 flex flex-col pt-2 lg:px-8">
+                
+                <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
+                  <h2 className="font-heading font-extrabold text-brown text-[32px] md:text-[44px] leading-tight pr-2 tracking-tight">
                     {s.nome}
                   </h2>
                   {s.badge && (
-                    <span className={`px-4 py-1.5 font-sans font-bold text-[11px] uppercase tracking-widest rounded-full self-start sm:mt-1.5 ${badgeColors.text} ${badgeColors.bg}`}>
+                    <span className={`px-4 py-1.5 font-sans font-bold text-[12px] uppercase tracking-widest rounded-full self-start md:mt-2 ${badgeTheme.text} ${badgeTheme.bg} shadow-sm border border-white/50`}>
                       {s.badge.replace('-', ' ')}
                     </span>
                   )}
                 </div>
                 
-                <span className="inline-block font-sans font-bold text-orange text-[14px] md:text-[15px] uppercase tracking-[0.14em] mb-6 drop-shadow-sm">
+                <span className={`inline-block font-sans font-bold text-[15px] md:text-[17px] uppercase tracking-[0.14em] mb-6 ${theme.text}`}>
                   {s.tagline}
                 </span>
                 
-                <p className="font-sans text-text-sec text-[16px] md:text-[17px] leading-[1.7] mb-10 max-w-[65ch] font-medium">
+                <p className="font-sans text-text-sec text-[17px] md:text-[19px] leading-[1.8] mb-10 max-w-[55ch] font-medium text-balance">
                   {s.descrizione}
                 </p>
                 
-                <h3 className="font-heading font-bold text-brown text-[19px] md:text-[21px] mb-5">
-                  Il trattamento include step-by-step:
-                </h3>
-                <ul className="flex flex-col gap-3 mb-10 pl-1">
+                <ul className="flex flex-col gap-4 mb-10 pl-1">
                   {s.dettagli.map((d, i) => (
-                    <li key={i} className="flex items-start gap-4 font-sans text-text-sec text-[15px] md:text-[16px] leading-relaxed font-medium">
-                      <CheckCircle size={24} weight="fill" className="text-teal shrink-0 mt-[1px] opacity-85 shadow-sm" />
-                      <span>{d}</span>
+                    <li key={i} className="flex items-start gap-4 font-sans text-text-sec text-[16px] md:text-[17px] leading-relaxed font-medium">
+                      <CheckCircle size={28} weight="fill" className={`${theme.text} shrink-0 mt-[1px] opacity-90 drop-shadow-sm`} />
+                      <span className="opacity-90">{d}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="bg-bg-alt rounded-[20px] p-6 mb-12 border border-[rgba(240,232,221,0.8)] flex items-start sm:items-center gap-4 shadow-[inset_0_2px_12px_rgba(106,58,42,0.015)]">
-                  <Info size={32} weight="duotone" className="text-orange shrink-0 mt-0.5 sm:mt-0 opacity-90" />
-                  <span className="font-sans text-[15px] md:text-[16px] font-medium text-brown leading-snug">
-                    <strong className="tracking-wide text-orange">IL CANDIDATO PERFETTO:</strong> {s.perChi}
+                <div className={`rounded-[24px] p-6 mb-12 border ${theme.borderLight} bg-white flex items-start sm:items-center gap-5 shadow-sm`}>
+                  <Info size={36} weight="duotone" className={`${theme.text} shrink-0 mt-0.5 sm:mt-0 opacity-100`} />
+                  <span className="font-sans text-[16px] md:text-[17px] font-medium text-text-sec leading-snug">
+                    <strong className={`tracking-wide mr-2 ${theme.text}`}>PER CHI:</strong> {s.perChi}
                   </span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
+                <div className="flex flex-col sm:flex-row items-center gap-6 mt-auto">
                   <a 
-                    href="/contatti"
-                    className="font-sans font-bold text-teal hover:underline text-[15px] md:text-[16px]"
+                    href={`?s=${s.slug}#prenota-ora`}
+                    className={`inline-flex items-center justify-center gap-3 bg-white border-2 border-border ${theme.text} rounded-full px-[32px] py-[18px] font-sans font-extrabold text-[17px] md:text-[18px] shadow-sm hover:border-transparent hover:bg-bg-alt hover:shadow-md transition-all group`}
                   >
-                    Chiedi info per {s.nome}
-                  </a>
-                  <a 
-                    href="/prezzi"
-                    className="font-sans font-bold text-text-muted hover:text-brown text-[15px] md:text-[16px]"
-                  >
-                    Vedi listino prezzi
+                    <span>Prenota questo servizio</span>
+                    <ArrowRight size={20} weight="bold" className="group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
-
-                {/* Pulsante Prenotazione Relativizzato -> Aggiorna l'url e trigga lo scrollTo target form */}
-                <a 
-                  href={`?s=${s.slug}#prenota-ora`}
-                  className="inline-flex items-center font-sans font-extrabold text-orange text-[17px] md:text-[19px] hover:text-orange-dark group w-fit outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-orange rounded"
-                >
-                  <span className="border-b-[3px] border-orange/40 group-hover:border-orange-dark pb-0.5 transition-colors">
-                    Prenota questo servizio
-                  </span>
-                  <span className="ml-[8px] font-mono font-bold text-[22px] group-hover:translate-x-[6px] transition-transform">
-                    →
-                  </span>
-                </a>
               </div>
+              
             </article>
           )
         })}

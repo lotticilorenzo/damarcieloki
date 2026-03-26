@@ -32,6 +32,21 @@ export function PawCursor() {
     if (!isVisible) setIsVisible(true)
   }, [mouseX, mouseY, isVisible])
 
+  const handleMouseLeaveWindow = useCallback(() => {
+    setIsVisible(false)
+  }, [])
+
+  const handleMouseEnterWindow = useCallback(() => {
+    setIsVisible(true)
+  }, [])
+
+  const handleVisibilityChange = useCallback(() => {
+    if (document.hidden) {
+      setIsVisible(false)
+      setCursorState('default')
+    }
+  }, [])
+
   const handleMouseOver = useCallback((e: MouseEvent) => {
     const target = e.target as HTMLElement
     if (!target) return
@@ -82,14 +97,20 @@ export function PawCursor() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
     window.addEventListener('mouseover', handleMouseOver, { passive: true })
     window.addEventListener('mousedown', handleMouseDown, { passive: true })
+    document.addEventListener('mouseleave', handleMouseLeaveWindow)
+    document.addEventListener('mouseenter', handleMouseEnterWindow)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
 
     return () => {
       document.documentElement.classList.remove('custom-cursor-active')
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseover', handleMouseOver)
       window.removeEventListener('mousedown', handleMouseDown)
+      document.removeEventListener('mouseleave', handleMouseLeaveWindow)
+      document.removeEventListener('mouseenter', handleMouseEnterWindow)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
     }
-  }, [handleMouseMove, handleMouseOver, handleMouseDown])
+  }, [handleMouseMove, handleMouseOver, handleMouseDown, handleMouseLeaveWindow, handleMouseEnterWindow, handleVisibilityChange])
 
   // Non renderizzare nulla se siamo su touch
   if (isTouch) return null

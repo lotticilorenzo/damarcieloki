@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { LokiSticker } from '@/components/ui/LokiSticker'
 import { PawDivider } from '@/components/ui/PawDivider'
 import { Question } from '@phosphor-icons/react/dist/ssr/Question'
+import { handleWhatsAppClick } from '@/lib/utils'
 
 interface FAQItem {
   q: string
@@ -67,6 +68,7 @@ export default function FAQContent({ faqs }: { faqs: FAQItem[] }) {
             </p>
             <a 
               href="https://wa.me/393759893189" 
+              onClick={(e) => handleWhatsAppClick(e, "Ciao Marci, avrei una domanda!")}
               className="inline-flex items-center justify-center bg-orange text-white rounded-full px-[40px] py-[20px] font-sans font-extrabold text-[18px] hover:bg-orange-dark hover:scale-105 transition-all shadow-lg shadow-orange/30"
             >
               Parla con Marci

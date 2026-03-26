@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { PawPrint } from '../ui/PawPrint'
@@ -10,9 +11,9 @@ import { NavMobile } from './NavMobile'
 import { cn } from '@/lib/utils'
 
 const links = [
+  { name: 'Home', href: '/' },
   { name: 'Chi Sono', href: '/chi-sono' },
   { name: 'Servizi', href: '/servizi' },
-  { name: 'Prezzi', href: '/prezzi' },
   { name: 'Contatti', href: '/contatti' },
 ]
 
@@ -30,24 +31,28 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] px-5 md:px-10",
         isScrolled 
-          ? "bg-white/60 backdrop-blur-2xl saturate-200 border-b border-border/40 shadow-[0_8px_32px_rgba(106,58,42,0.08)] py-3" 
-          : "bg-bg/95 backdrop-blur-sm border-b-2 border-border py-6"
+          ? "bg-white/60 backdrop-blur-2xl saturate-200 border-b border-border/40 shadow-[0_8px_32px_rgba(106,58,42,0.08)] py-2" 
+          : "bg-bg/95 backdrop-blur-sm border-b-2 border-border py-4"
       )}
     >
       <div className="max-w-[1200px] mx-auto flex items-center justify-between">
         
-        {/* Placeholder Logo */}
+        {/* Logo */}
         <Link 
           href="/" 
-          className="flex items-center z-[60] relative outline-none focus-visible:ring-2 focus-visible:ring-orange rounded max-h-[48px] group"
+          className="flex items-center z-[60] relative outline-none focus-visible:ring-2 focus-visible:ring-orange rounded group"
           aria-label="Homepage Da Marci & Loki"
         >
-          <motion.span 
-            whileHover={{ scale: 1.02 }}
-            className="font-heading font-black text-2xl text-brown tracking-tight inline-flex items-center gap-2"
-          >
-            Marci <span className="text-orange">&</span> Loki
-          </motion.span>
+          <motion.div whileHover={{ scale: 1.02 }} className="relative h-[60px] w-[170px] md:h-[70px] md:w-[200px]">
+            <Image 
+              src="/logo_damarcieloki_trasparente.png" 
+              alt="Da Marci & Loki Logo" 
+              fill
+              sizes="(max-width: 768px) 170px, 200px"
+              className="object-contain object-left"
+              priority
+            />
+          </motion.div>
         </Link>
 
         {/* Desktop Navbar */}

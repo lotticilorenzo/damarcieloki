@@ -58,9 +58,10 @@ export function ServiceCard({
       {/* Box Immagine Header */}
       <div className="relative w-full h-[180px] md:h-[220px] mb-6 rounded-[24px] overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
          <Image 
-           src={isBagno ? '/images/hero.png' : '/images/salon.png'} 
+           src={`/images/srv_${servizio.slug.replace('-', '_')}.png`} 
            alt={servizio.nome} 
            fill 
+           sizes="(max-width: 1024px) 100vw, 33vw"
            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
          />
          <div className="absolute inset-0 bg-gradient-to-t from-brown/60 to-transparent mix-blend-multiply"></div>
@@ -104,10 +105,10 @@ export function ServiceCard({
           </span>
 
           <Link 
-            href={`/servizi#${servizio.slug}`} 
+            href="/contatti" 
             className="font-sans font-bold text-orange hover:text-orange-dark inline-flex items-center w-fit outline-none focus-visible:ring-2 focus-visible:ring-orange rounded tracking-wide transition-colors group/link"
           >
-            Vedi dettagli {servizio.nome.toLowerCase()}
+            Prenota {servizio.nome.toLowerCase()}
             <ServiceCardLinkIndicator />
           </Link>
         </div>

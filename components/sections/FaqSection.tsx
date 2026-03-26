@@ -8,19 +8,19 @@ import { cn } from '@/lib/utils'
 const faqData = [
   {
     question: "Posso restare a guardare mentre lo lavi?",
-    answer: "Preferisco di no, ma è per il suo bene! Se ti vede, cercherà costantemente di raggiungerti e non si godrà il relax. Affidalo a me, diventerò presto la sua seconda persona preferita."
+    answer: "Tranne rarissimi casi, preferisco di no. Se ti vede, passerà il tempo a cercare te e non si rilasserà mai. Fidati di me e vai a prendere un caffè: diventerò presto la sua seconda persona preferita."
   },
   {
-    question: "Quanto dura una sessione da VIP?",
-    answer: "Dipende dal pelo e da quante coccole richiede! Di solito da 1 a 2 ore. Ma non ti preoccupare, ti mando un messaggino su WhatsApp non appena ha finito di farsi bello."
+    question: "Quanto tempo ci vuole di solito?",
+    answer: "Dipende da quanto pelo ha e, soprattutto, da quante coccole pretende! In media da 1 a 2 ore. Ma zero ansia: ti scrivo io su WhatsApp appena è asciutto, profumato e pronto per tornare a casa."
   },
   {
     question: "Usi quelle gabbie per l'asciugatura?",
-    answer: "Assolutamente MAI. L'asciugatura è rigorosamente a mano, con panni morbidi, phon a temperature adeguate e tanti grattini. Zero gabbie, zero costrizioni. Solo puro rispetto per i suoi tempi."
+    answer: "Assolutamente MAI. Lavoro su appuntamento proprio per dedicare il 100% del tempo a un solo cane. Asciugatura rigorosamente a mano con phon tiepido, panni morbidi e tonnellate di grattini."
   },
   {
-    question: "Cosa devo fare prima di portarlo?",
-    answer: "Fagli fare una bella passeggiata tranquilla (e tutti i bisognini) prima di varcare la porta. Se ha nodi particolari o è un tipo un po' timido, dimmelo prima, così preparo l'ambiente perfetto per lui!"
+    question: "Cosa devo fargli fare prima di portartelo?",
+    answer: "Una bella passeggiata per scaricare l'energia (e fargli fare tutti i bisognini). Se odia l'acqua, morde la spazzola o ha paure strane, dimmelo subito: i cani «difficili» sono i miei preferiti. Sfida accettata."
   }
 ]
 
@@ -32,8 +32,8 @@ export function FaqSection() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-3xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-black text-brown mb-4 tracking-tight">I Dubbi più Frequenti</h2>
-          <p className="text-lg text-text-sec max-w-xl mx-auto font-sans">
-            Qualche domanda prima di portarmi il tuo amico peloso? Ecco le risposte che do più spesso.
+          <p className="text-lg text-text-sec max-w-xl mx-auto font-sans leading-relaxed">
+            Hai qualche incertezza prima di affidarmi il tuo bestione? Ecco le cose che mi chiedono più spesso in toelettatura.
           </p>
         </div>
 

@@ -62,11 +62,11 @@ export function ProcessSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 bg-bg-alt relative overflow-hidden z-10">
+    <section ref={sectionRef} className="py-16 md:py-36 bg-bg-alt relative overflow-hidden z-10">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10 w-full">
         
-        <div className="mb-16 md:mb-24 flex justify-center text-center">
-          <h2 className="font-heading font-extrabold text-brown text-[clamp(32px,5vw,44px)] tracking-tight">
+        <div className="mb-12 md:mb-24 flex justify-center text-center">
+          <h2 className="font-heading font-extrabold text-brown text-[clamp(32px,8vw,44px)] tracking-tight">
             Come funziona
           </h2>
         </div>

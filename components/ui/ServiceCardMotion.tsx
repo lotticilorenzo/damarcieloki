@@ -33,9 +33,8 @@ export function ServiceCardMotion({
     },
     hover: {
       y: -8,
-      scale: 1.02,
       rotate: tiltDir[index % tiltDir.length],
-      boxShadow: '0 24px 50px rgba(106, 58, 42, 0.12)',
+      boxShadow: '0 24px 40px rgba(106, 58, 42, 0.12)',
       transition: { type: 'spring' as const, stiffness: 300, damping: 18 }
     }
   }
@@ -48,7 +47,11 @@ export function ServiceCardMotion({
       whileHover="hover"
       viewport={{ once: true, margin: '-40px' }}
       className={cn(
-        "relative flex flex-col h-full bg-white rounded-[20px] p-[28px] shadow-[0_4px_20px_rgba(106,58,42,0.06)] border border-border group transition-[border-color,border-width] duration-300",
+        "relative flex flex-col h-full bg-white rounded-[20px] p-[28px] shadow-[0_4px_20px_rgba(106,58,42,0.06)] border border-border group transition-[border-color,border-width] duration-300 transform-gpu cursor-pointer",
+        {
+          "backface-hidden": true, // Previene blur su testo durante trasformazioni 3D
+          "will-change-transform": true
+        },
         cardBorderDynamicClass,
         className
       )}

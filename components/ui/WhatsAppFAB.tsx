@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import { WhatsappLogo } from '@phosphor-icons/react/dist/ssr/WhatsappLogo'
+import { handleWhatsAppClick } from '@/lib/utils'
 
 export function WhatsAppFAB() {
   const wiggleControls = useAnimation()
@@ -78,7 +79,10 @@ export function WhatsAppFAB() {
             transition: { type: 'spring', stiffness: 400, damping: 17 }
           }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => setShowBadge(false)}
+          onClick={(e) => {
+            setShowBadge(false);
+            handleWhatsAppClick(e, "Ciao Marci! Vorrei prenotare per il mio cane");
+          }}
           className="flex items-center justify-center w-[56px] h-[56px] bg-white rounded-full shadow-[0_12px_32px_rgba(106,58,42,0.18)] hover:shadow-[0_16px_48px_rgba(106,58,42,0.25)] border border-border outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40 transition-shadow"
         >
           <WhatsappLogo size={32} weight="fill" color="#25D366" />
