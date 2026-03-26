@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { generateMetadataHelper, generateBreadcrumbLD } from '@/lib/seo'
 import { images } from '@/lib/images'
 import { handleWhatsAppClick } from '@/lib/utils'
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 
 export const metadata: Metadata = generateMetadataHelper(
   'chi-sono',
@@ -143,15 +144,7 @@ export default function ChiSonoPage() {
       {/* 4. CTA Finale WhatsApp + Internal Link */}
       <section className="px-6 md:px-12 flex flex-col items-center justify-center pb-12 w-full pt-16 border-t-[2px] border-dashed border-[rgba(240,232,221,0.8)] gap-8">
         <div className="flex flex-col sm:flex-row items-center gap-6">
-          <a 
-            href="https://wa.me/393759893189?text=Ciao%20Marci,%20ho%20visto%20la%20tua%20storia%20sul%20sito!%20Vorrei%20portarti%20il%20mio%20cane..." 
-            onClick={(e) => handleWhatsAppClick(e, "Ciao Marci, ho visto la tua storia sul sito! Vorrei portarti il mio cane...")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-orange text-white rounded-full px-[40px] py-[20px] font-sans font-extrabold text-[18px] md:text-[20px] tracking-wide hover:bg-orange-dark hover:scale-105 active:scale-[0.98] transition-all outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-orange shadow-[0_16px_40px_rgba(212,88,26,0.3)] hover:shadow-[0_20px_48px_rgba(212,88,26,0.4)]"
-          >
-            Scrivimi su WhatsApp
-          </a>
+          <WhatsAppButton message="Ciao Marci, ho visto la tua storia sul sito! Vorrei portarti il mio cane..." />
           <a 
             href="/servizi" 
             className="inline-flex items-center justify-center bg-white border-2 border-border text-brown rounded-full px-[32px] py-[18px] font-sans font-bold text-[17px] md:text-[18px] hover:border-orange-light hover:bg-bg-alt transition-all"
